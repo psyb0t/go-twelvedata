@@ -88,7 +88,7 @@ make generate
 `gen.go` declares the steps, so `make generate` is just `go generate ./...`:
 
 - `scripts/fetch-spec.sh` downloads `https://api.twelvedata.com/doc/swagger/openapi.json` to `api/openapi.json`.
-- `scripts/patch-spec.sh` writes `api/openapi.patched.json`. It converts OpenAPI 3.1 schema `examples` arrays to a single `example` and declares OpenAPI 3.0.3 so kin-openapi can read the document. It removes component-level `x-go-name` overrides that reuse names such as `Meta` for different schemas, letting the unique component keys name the types. It normalizes typographic dashes and promotional wording in descriptions, summaries and string example annotations before they become Go comments. Property and parameter overrides and wire schemas remain intact. It removes no paths or operations.
+- `scripts/patch-spec.sh` writes `api/openapi.patched.json`. It converts OpenAPI 3.1 schema `examples` arrays to a single `example` and declares OpenAPI 3.0.3 so kin-openapi can read the document. It removes component-level `x-go-name` overrides that reuse names such as `Meta` for different schemas, letting the unique component keys name the types. Property and parameter overrides and wire schemas remain intact. It removes no paths or operations.
 - oapi-codegen runs with `config.yaml`. The config maps `number` to `float64` and resolves type and enum naming collisions.
 
 `.github/workflows/regen.yml` does the same every day in CI. When the spec changes the client, it runs `make lint`, `make test` and `make sec`. A failing check can trigger up to three repair attempts and a review. Passing changes get a CHANGELOG entry and a release tag.

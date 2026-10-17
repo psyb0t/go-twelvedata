@@ -6,7 +6,7 @@ Unofficial Go client for the Twelve Data API, generated from the OpenAPI documen
 
 One generated package, `twelvedata`, at the module root, driven by `gen.go`:
 
-`scripts/fetch-spec.sh` downloads `https://api.twelvedata.com/doc/swagger/openapi.json` to `api/openapi.json`. `scripts/patch-spec.sh` writes `api/openapi.patched.json`, converting schema `examples` arrays to a single `example`, declaring OpenAPI 3.0.3 for kin-openapi and removing component-level `x-go-name` overrides. It normalizes typographic dashes and promotional wording in descriptions, summaries and string example annotations without changing wire schemas. oapi-codegen reads the patched spec with `config.yaml` and writes `client.gen.go`. All 187 paths are generated.
+`scripts/fetch-spec.sh` downloads `https://api.twelvedata.com/doc/swagger/openapi.json` to `api/openapi.json`. `scripts/patch-spec.sh` writes `api/openapi.patched.json`, converting schema `examples` arrays to a single `example`, declaring OpenAPI 3.0.3 for kin-openapi and removing component-level `x-go-name` overrides. oapi-codegen reads the patched spec with `config.yaml` and writes `client.gen.go`. All 187 paths are generated.
 
 ## Stack
 

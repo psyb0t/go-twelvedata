@@ -1779,7 +1779,7 @@ type GetStatistics200ResponseStatisticsValuationsMetrics struct {
 	// Example: 2546807865344
 	MarketCapitalization *float64 `json:"market_capitalization,omitempty"`
 
-	// EnterpriseValue Refers to enterprise value (EV) of the company, often used as a more detailed alternative to market capitalization
+	// EnterpriseValue Refers to enterprise value (EV) of the company, often used as a more comprehensive alternative to market capitalization
 	//
 	// Example: 2620597731328
 	EnterpriseValue *float64 `json:"enterprise_value,omitempty"`
@@ -20237,7 +20237,7 @@ type PressRelease struct {
 
 	// Body Press release body in html format
 	//
-	// Example: &lt;b&gt;Key Highlights&lt;/b&gt;&lt;ul&gt;&lt;li&gt;Multi-year collaboration spans NVIDIA CUDA accelerated computing, agentic and physical AI, and Omniverse digital twins to achieve simulation speed and scale previously unattainable through traditional CPU computing , opening new market opportunities across engineering.&lt;/li&gt;&lt;li&gt;To further adoption of GPU-accelerated engineering solutions, the companies will collaborate in engineering and marketing activities.&lt;/li&gt;&lt;li&gt;NVIDIA invested $2 billion in Synopsys common stock.&lt;/li&gt;&lt;/ul&gt;...
+	// Example: &lt;b&gt;Key Highlights&lt;/b&gt;&lt;ul&gt;&lt;li&gt;Multi-year collaboration spans NVIDIA CUDA accelerated computing, agentic and physical AI, and Omniverse digital twins to achieve simulation speed and scale previously unattainable through traditional CPU computing – opening new market opportunities across engineering.&lt;/li&gt;&lt;li&gt;To further adoption of GPU-accelerated engineering solutions, the companies will collaborate in engineering and marketing activities.&lt;/li&gt;&lt;li&gt;NVIDIA invested $2 billion in Synopsys common stock.&lt;/li&gt;&lt;/ul&gt;...
 	Body string `json:"body"`
 
 	// Style Custom style applied to the release
@@ -34047,7 +34047,7 @@ type ClientInterface interface {
 
 	// GetBalanceSheetConsolidated Balance sheet consolidated
 	//
-	// The balance sheet consolidated endpoint provides a detailed overview of a company's raw balance sheet, including a detailed summary of its assets, liabilities, and shareholders' equity. This endpoint is useful for retrieving financial data that reflects the overall financial position of a company, allowing users to access critical information about its financial health and structure.
+	// The balance sheet consolidated endpoint provides a detailed overview of a company's raw balance sheet, including a comprehensive summary of its assets, liabilities, and shareholders' equity. This endpoint is useful for retrieving financial data that reflects the overall financial position of a company, allowing users to access critical information about its financial health and structure.
 	//
 	// Corresponds with GET /balance_sheet/consolidated (the `GetBalanceSheetConsolidated` operationId).
 	GetBalanceSheetConsolidated(ctx context.Context, params *GetBalanceSheetConsolidatedParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34130,7 +34130,7 @@ type ClientInterface interface {
 
 	// GetCashFlow Cash flow
 	//
-	// The cash flow endpoint provides detailed information on a company's cash flow activities, including the net cash and cash equivalents moving in and out of the business. This data includes operating, investing, and financing cash flows, offering a detailed view of the company's liquidity and financial health.
+	// The cash flow endpoint provides detailed information on a company's cash flow activities, including the net cash and cash equivalents moving in and out of the business. This data includes operating, investing, and financing cash flows, offering a comprehensive view of the company's liquidity and financial health.
 	//
 	// Corresponds with GET /cash_flow (the `GetCashFlow` operationId).
 	GetCashFlow(ctx context.Context, params *GetCashFlowParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34186,14 +34186,14 @@ type ClientInterface interface {
 
 	// GetCountries Countries
 	//
-	// The countries endpoint provides a detailed list of countries, including their ISO codes, official names, capitals, and currencies. This data is essential for applications requiring accurate country information for tasks such as localization, currency conversion, or geographic analysis.
+	// The countries endpoint provides a comprehensive list of countries, including their ISO codes, official names, capitals, and currencies. This data is essential for applications requiring accurate country information for tasks such as localization, currency conversion, or geographic analysis.
 	//
 	// Corresponds with GET /countries (the `GetCountries` operationId).
 	GetCountries(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetCrossListings Cross listings
 	//
-	// The cross_listings endpoint provides a daily updated list of cross-listed symbols for a specified financial instrument. Cross-listed symbols represent the same security available on multiple exchanges. This endpoint is useful for identifying all the exchanges where a particular security is traded, allowing users to access detailed trading information across different markets.
+	// The cross_listings endpoint provides a daily updated list of cross-listed symbols for a specified financial instrument. Cross-listed symbols represent the same security available on multiple exchanges. This endpoint is useful for identifying all the exchanges where a particular security is traded, allowing users to access comprehensive trading information across different markets.
 	//
 	// Corresponds with GET /cross_listings (the `GetCrossListings` operationId).
 	GetCrossListings(ctx context.Context, params *GetCrossListingsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34207,7 +34207,7 @@ type ClientInterface interface {
 
 	// GetCryptocurrencies Cryptocurrency pairs
 	//
-	// The cryptocurrencies endpoint provides a daily updated list of all available cryptos. It returns an array containing detailed information about each cryptocurrency, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a detailed catalog of cryptocurrencies for applications that require up-to-date market listings or need to display available crypto assets to users.
+	// The cryptocurrencies endpoint provides a daily updated list of all available cryptos. It returns an array containing detailed information about each cryptocurrency, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a comprehensive catalog of cryptocurrencies for applications that require up-to-date market listings or need to display available crypto assets to users.
 	//
 	// Corresponds with GET /cryptocurrencies (the `GetCryptocurrencies` operationId).
 	GetCryptocurrencies(ctx context.Context, params *GetCryptocurrenciesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34284,7 +34284,7 @@ type ClientInterface interface {
 
 	// GetEarnings Earnings
 	//
-	// The earnings endpoint provides detailed earnings data for a specified company, including both the estimated and actual Earnings Per Share (EPS) figures. This endpoint delivers historical earnings information, allowing users to track a company's financial performance over time.
+	// The earnings endpoint provides comprehensive earnings data for a specified company, including both the estimated and actual Earnings Per Share (EPS) figures. This endpoint delivers historical earnings information, allowing users to track a company's financial performance over time.
 	//
 	// Corresponds with GET /earnings (the `GetEarnings` operationId).
 	GetEarnings(ctx context.Context, params *GetEarningsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34305,7 +34305,7 @@ type ClientInterface interface {
 
 	// GetEdgarFilingsArchive EDGAR fillings
 	//
-	// The EDGAR fillings endpoint provides access to a detailed collection of financial documents submitted to the SEC, including real-time and historical forms, filings, and exhibits. Users can retrieve detailed information about company disclosures, financial statements, and regulatory submissions, enabling them to access essential compliance and financial data directly from the SEC's EDGAR system.
+	// The EDGAR fillings endpoint provides access to a comprehensive collection of financial documents submitted to the SEC, including real-time and historical forms, filings, and exhibits. Users can retrieve detailed information about company disclosures, financial statements, and regulatory submissions, enabling them to access essential compliance and financial data directly from the SEC's EDGAR system.
 	//
 	// Corresponds with GET /edgar_filings/archive (the `GetEdgarFilingsArchive` operationId).
 	GetEdgarFilingsArchive(ctx context.Context, params *GetEdgarFilingsArchiveParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34333,28 +34333,28 @@ type ClientInterface interface {
 
 	// GetEpsTrend EPS trend
 	//
-	// The EPS trend endpoint provides detailed historical data on Earnings Per Share (EPS) trends over specified periods. It returns a detailed breakdown of estimated EPS changes, allowing users to track and analyze the progression of a company's earnings performance over time. This endpoint is ideal for users seeking to understand historical EPS fluctuations and assess financial growth patterns.
+	// The EPS trend endpoint provides detailed historical data on Earnings Per Share (EPS) trends over specified periods. It returns a comprehensive breakdown of estimated EPS changes, allowing users to track and analyze the progression of a company's earnings performance over time. This endpoint is ideal for users seeking to understand historical EPS fluctuations and assess financial growth patterns.
 	//
 	// Corresponds with GET /eps_trend (the `GetEpsTrend` operationId).
 	GetEpsTrend(ctx context.Context, params *GetEpsTrendParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetEtf ETFs
 	//
-	// The ETFs endpoint provides a daily updated list of all available Exchange-Traded Funds. It returns an array containing detailed information about each ETF, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a detailed catalog of ETFs for portfolio management, investment tracking, or financial analysis.
+	// The ETFs endpoint provides a daily updated list of all available Exchange-Traded Funds. It returns an array containing detailed information about each ETF, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a comprehensive catalog of ETFs for portfolio management, investment tracking, or financial analysis.
 	//
 	// Corresponds with GET /etfs (the `GetEtf` operationId).
 	GetEtf(ctx context.Context, params *GetEtfParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetETFsFamily ETFs families
 	//
-	// Retrieve a detailed list of exchange-traded fund (ETF) families, providing users with detailed information on various ETF groups available in the market. This endpoint is ideal for users looking to explore different ETF categories, compare offerings, or integrate ETF family data into their financial applications.
+	// Retrieve a comprehensive list of exchange-traded fund (ETF) families, providing users with detailed information on various ETF groups available in the market. This endpoint is ideal for users looking to explore different ETF categories, compare offerings, or integrate ETF family data into their financial applications.
 	//
 	// Corresponds with GET /etfs/family (the `GetETFsFamily` operationId).
 	GetETFsFamily(ctx context.Context, params *GetETFsFamilyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetETFsList ETFs directory
 	//
-	// The ETFs directory endpoint provides a daily updated list of exchange-traded funds, sorted by total assets in descending order. This endpoint is useful for retrieving detailed ETF data, including fund names and asset values, to assist users in quickly identifying the ETFs available.
+	// The ETFs directory endpoint provides a daily updated list of exchange-traded funds, sorted by total assets in descending order. This endpoint is useful for retrieving comprehensive ETF data, including fund names and asset values, to assist users in quickly identifying the ETFs available.
 	//
 	// Corresponds with GET /etfs/list (the `GetETFsList` operationId).
 	GetETFsList(ctx context.Context, params *GetETFsListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34368,7 +34368,7 @@ type ClientInterface interface {
 
 	// GetETFsWorld ETF full data
 	//
-	// The ETF full data endpoint provides detailed information about global Exchange-Traded Funds. It returns detailed data, including a summary, performance metrics, risk assessment, and composition details. This endpoint is ideal for users seeking an in-depth analysis of worldwide ETFs, enabling them to access key financial metrics and portfolio breakdowns.
+	// The ETF full data endpoint provides detailed information about global Exchange-Traded Funds. It returns comprehensive data, including a summary, performance metrics, risk assessment, and composition details. This endpoint is ideal for users seeking an in-depth analysis of worldwide ETFs, enabling them to access key financial metrics and portfolio breakdowns.
 	//
 	// Corresponds with GET /etfs/world (the `GetETFsWorld` operationId).
 	GetETFsWorld(ctx context.Context, params *GetETFsWorldParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34382,7 +34382,7 @@ type ClientInterface interface {
 
 	// GetETFsWorldPerformance Performance
 	//
-	// The ETFs performance endpoint provides detailed performance data for exchange-traded funds globally. It returns detailed metrics such as trailing returns and annual returns, enabling users to evaluate the historical performance of various ETFs. This endpoint is ideal for users looking to compare ETF performance over different time periods and assess their investment potential.
+	// The ETFs performance endpoint provides comprehensive performance data for exchange-traded funds globally. It returns detailed metrics such as trailing returns and annual returns, enabling users to evaluate the historical performance of various ETFs. This endpoint is ideal for users looking to compare ETF performance over different time periods and assess their investment potential.
 	//
 	// Corresponds with GET /etfs/world/performance (the `GetETFsWorldPerformance` operationId).
 	GetETFsWorldPerformance(ctx context.Context, params *GetETFsWorldPerformanceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34417,7 +34417,7 @@ type ClientInterface interface {
 
 	// GetExchanges Exchanges
 	//
-	// The exchanges endpoint provides a detailed list of all available equity exchanges. It returns an array containing detailed information about each exchange, such as exchange code, name, country, and timezone. This data is updated daily.
+	// The exchanges endpoint provides a comprehensive list of all available equity exchanges. It returns an array containing detailed information about each exchange, such as exchange code, name, country, and timezone. This data is updated daily.
 	//
 	// Corresponds with GET /exchanges (the `GetExchanges` operationId).
 	GetExchanges(ctx context.Context, params *GetExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34438,7 +34438,7 @@ type ClientInterface interface {
 
 	// GetForexPairs Forex pairs
 	//
-	// The forex pairs endpoint provides a detailed list of all available foreign exchange currency pairs. It returns an array of forex pairs, which is updated daily.
+	// The forex pairs endpoint provides a comprehensive list of all available foreign exchange currency pairs. It returns an array of forex pairs, which is updated daily.
 	//
 	// Corresponds with GET /forex_pairs (the `GetForexPairs` operationId).
 	GetForexPairs(ctx context.Context, params *GetForexPairsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34459,7 +34459,7 @@ type ClientInterface interface {
 
 	// GetGrowthEstimates Growth estimates
 	//
-	// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a detailed view of expected company performance based on expert analysis.
+	// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a comprehensive view of expected company performance based on expert analysis.
 	//
 	// Corresponds with GET /growth_estimates (the `GetGrowthEstimates` operationId).
 	GetGrowthEstimates(ctx context.Context, params *GetGrowthEstimatesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34529,14 +34529,14 @@ type ClientInterface interface {
 
 	// GetIncomeStatement Income statement
 	//
-	// The income statement endpoint provides detailed financial data on a company's income statement, including revenues, expenses, and net income for specified periods, either annually or quarterly. This endpoint is essential for retrieving detailed financial performance metrics of a company, allowing users to access historical and current financial results.
+	// The income statement endpoint provides detailed financial data on a company's income statement, including revenues, expenses, and net income for specified periods, either annually or quarterly. This endpoint is essential for retrieving comprehensive financial performance metrics of a company, allowing users to access historical and current financial results.
 	//
 	// Corresponds with GET /income_statement (the `GetIncomeStatement` operationId).
 	GetIncomeStatement(ctx context.Context, params *GetIncomeStatementParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetIncomeStatementConsolidated Income statement consolidated
 	//
-	// The income statement consolidated endpoint provides a company's raw income statement, detailing revenue, expenses, and net income for specified periods, either annually or quarterly. This data is essential for evaluating a company's financial performance over time, allowing users to access detailed financial results in a structured format.
+	// The income statement consolidated endpoint provides a company's raw income statement, detailing revenue, expenses, and net income for specified periods, either annually or quarterly. This data is essential for evaluating a company's financial performance over time, allowing users to access comprehensive financial results in a structured format.
 	//
 	// Corresponds with GET /income_statement/consolidated (the `GetIncomeStatementConsolidated` operationId).
 	GetIncomeStatementConsolidated(ctx context.Context, params *GetIncomeStatementConsolidatedParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34823,7 +34823,7 @@ type ClientInterface interface {
 
 	// GetMoneyMarketFundsWorld MMF full data
 	//
-	// The money market fund full data endpoint provides detailed information about a global money market fund. It returns a detailed snapshot of the fund, including its identity, screener metrics (fund size, liquidity, weighted average maturity), yields, key facts, risk indicator, and key risks. This endpoint is essential for users seeking in-depth insights into a specific money market fund.
+	// The money market fund full data endpoint provides detailed information about a global money market fund. It returns a comprehensive snapshot of the fund, including its identity, screener metrics (fund size, liquidity, weighted average maturity), yields, key facts, risk indicator, and key risks. This endpoint is essential for users seeking in-depth insights into a specific money market fund.
 	//
 	// Corresponds with GET /money_market_funds/world (the `GetMoneyMarketFundsWorld` operationId).
 	GetMoneyMarketFundsWorld(ctx context.Context, params *GetMoneyMarketFundsWorldParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34837,7 +34837,7 @@ type ClientInterface interface {
 
 	// GetMutualFundsFamily MFs families
 	//
-	// The mutual funds family endpoint provides a detailed list of MF families, which are groups of mutual funds managed by the same investment company. This data is useful for users looking to explore or compare different fund families, understand the range of investment options offered by each, and identify potential investment opportunities within specific fund families.
+	// The mutual funds family endpoint provides a comprehensive list of MF families, which are groups of mutual funds managed by the same investment company. This data is useful for users looking to explore or compare different fund families, understand the range of investment options offered by each, and identify potential investment opportunities within specific fund families.
 	//
 	// Corresponds with GET /mutual_funds/family (the `GetMutualFundsFamily` operationId).
 	GetMutualFundsFamily(ctx context.Context, params *GetMutualFundsFamilyParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34858,7 +34858,7 @@ type ClientInterface interface {
 
 	// GetMutualFundsWorld MF full data
 	//
-	// The mutual full data endpoint provides detailed information about global mutual funds. It returns a detailed dataset that includes a summary of the fund, its performance metrics, risk assessment, ratings, asset composition, purchase details, and sustainability factors. This endpoint is essential for users seeking in-depth insights into mutual funds on a global scale, allowing them to evaluate various aspects such as investment performance, risk levels, and environmental impact.
+	// The mutual full data endpoint provides detailed information about global mutual funds. It returns a comprehensive dataset that includes a summary of the fund, its performance metrics, risk assessment, ratings, asset composition, purchase details, and sustainability factors. This endpoint is essential for users seeking in-depth insights into mutual funds on a global scale, allowing them to evaluate various aspects such as investment performance, risk levels, and environmental impact.
 	//
 	// Corresponds with GET /mutual_funds/world (the `GetMutualFundsWorld` operationId).
 	GetMutualFundsWorld(ctx context.Context, params *GetMutualFundsWorldParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34872,7 +34872,7 @@ type ClientInterface interface {
 
 	// GetMutualFundsWorldPerformance Performance
 	//
-	// The mutual funds performances endpoint provides detailed performance data for mutual funds globally. It returns metrics such as trailing returns, annual returns, quarterly returns, and load-adjusted returns.
+	// The mutual funds performances endpoint provides comprehensive performance data for mutual funds globally. It returns metrics such as trailing returns, annual returns, quarterly returns, and load-adjusted returns.
 	//
 	// Corresponds with GET /mutual_funds/world/performance (the `GetMutualFundsWorldPerformance` operationId).
 	GetMutualFundsWorldPerformance(ctx context.Context, params *GetMutualFundsWorldPerformanceParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -34984,7 +34984,7 @@ type ClientInterface interface {
 
 	// GetProfile Profile
 	//
-	// The profile endpoint provides detailed company information, including the company's name, industry, sector, CEO, and headquarters location. This data is useful for obtaining a detailed overview of a company's business and financial standing.
+	// The profile endpoint provides detailed company information, including the company's name, industry, sector, CEO, and headquarters location. This data is useful for obtaining a comprehensive overview of a company's business and financial standing.
 	//
 	// Corresponds with GET /profile (the `GetProfile` operationId).
 	GetProfile(ctx context.Context, params *GetProfileParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -35054,7 +35054,7 @@ type ClientInterface interface {
 
 	// GetSourceSanctionedEntities Sanctioned entities
 	//
-	// The sanctions entities endpoint provides a detailed list of entities sanctioned by a specified authority, such as OFAC, UK, EU, or AU. Users can retrieve detailed information about individuals, organizations, and other entities subject to sanctions from the chosen source, facilitating compliance and risk management processes.
+	// The sanctions entities endpoint provides a comprehensive list of entities sanctioned by a specified authority, such as OFAC, UK, EU, or AU. Users can retrieve detailed information about individuals, organizations, and other entities subject to sanctions from the chosen source, facilitating compliance and risk management processes.
 	//
 	// Corresponds with GET /sanctions/{source} (the `GetSourceSanctionedEntities` operationId).
 	GetSourceSanctionedEntities(ctx context.Context, source SourceEnum, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -35103,7 +35103,7 @@ type ClientInterface interface {
 
 	// GetStatistics Statistics
 	//
-	// The statistics endpoint provides a detailed snapshot of a company's key financial statistics, including valuation metrics, revenue figures, profit margins, and other essential financial data. This endpoint is ideal for users seeking detailed insights into a company's financial health and performance metrics.
+	// The statistics endpoint provides a comprehensive snapshot of a company's key financial statistics, including valuation metrics, revenue figures, profit margins, and other essential financial data. This endpoint is ideal for users seeking detailed insights into a company's financial health and performance metrics.
 	//
 	// Corresponds with GET /statistics (the `GetStatistics` operationId).
 	GetStatistics(ctx context.Context, params *GetStatisticsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -35159,7 +35159,7 @@ type ClientInterface interface {
 
 	// GetTimeSeriesSuperTrend Supertrend
 	//
-	// The Supertrend endpoint provides data on the Supertrend indicator, a tool used to identify potential buy and sell signals in trending markets. It returns values that indicate the current trend direction and potential reversal points based on price, time, and volatility. Users can use this data to pinpoint optimal entry and exit points for trades.
+	// The Supertrend endpoint provides data on the Supertrend indicator, a tool used to identify potential buy and sell signals in trending markets. It returns values that indicate the current trend direction and potential reversal points based on price, time, and volatility. Users can leverage this data to pinpoint optimal entry and exit points for trades.
 	//
 	// Corresponds with GET /supertrend (the `GetTimeSeriesSuperTrend` operationId).
 	GetTimeSeriesSuperTrend(ctx context.Context, params *GetTimeSeriesSuperTrendParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -35194,7 +35194,7 @@ type ClientInterface interface {
 
 	// GetTechnicalIndicators Technical indicators
 	//
-	// The technical indicators endpoint provides a detailed list of available technical indicators, each represented as an object. This endpoint is useful for developers looking to integrate a variety of technical analysis tools into their applications, allowing for streamlined access to indicator data without needing to manually configure each one.
+	// The technical indicators endpoint provides a comprehensive list of available technical indicators, each represented as an object. This endpoint is useful for developers looking to integrate a variety of technical analysis tools into their applications, allowing for streamlined access to indicator data without needing to manually configure each one.
 	//
 	// Corresponds with GET /technical_indicators (the `GetTechnicalIndicators` operationId).
 	GetTechnicalIndicators(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -35208,7 +35208,7 @@ type ClientInterface interface {
 
 	// GetTimeSeries Time series
 	//
-	// The time series endpoint provides detailed historical data for a specified financial instrument. It returns two main components: metadata, which includes essential information about the instrument, and a time series dataset. The time series consists of chronological entries with Open, High, Low, and Close prices, and for applicable instruments, it also includes trading volume. This endpoint is ideal for retrieving detailed historical price data for analysis or visualization purposes.
+	// The time series endpoint provides detailed historical data for a specified financial instrument. It returns two main components: metadata, which includes essential information about the instrument, and a time series dataset. The time series consists of chronological entries with Open, High, Low, and Close prices, and for applicable instruments, it also includes trading volume. This endpoint is ideal for retrieving comprehensive historical price data for analysis or visualization purposes.
 	//
 	// Corresponds with GET /time_series (the `GetTimeSeries` operationId).
 	GetTimeSeries(ctx context.Context, params *GetTimeSeriesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -35548,7 +35548,7 @@ func (c *Client) GetBalanceSheet(ctx context.Context, params *GetBalanceSheetPar
 
 // GetBalanceSheetConsolidated Balance sheet consolidated
 //
-// The balance sheet consolidated endpoint provides a detailed overview of a company's raw balance sheet, including a detailed summary of its assets, liabilities, and shareholders' equity. This endpoint is useful for retrieving financial data that reflects the overall financial position of a company, allowing users to access critical information about its financial health and structure.
+// The balance sheet consolidated endpoint provides a detailed overview of a company's raw balance sheet, including a comprehensive summary of its assets, liabilities, and shareholders' equity. This endpoint is useful for retrieving financial data that reflects the overall financial position of a company, allowing users to access critical information about its financial health and structure.
 //
 // Corresponds with GET /balance_sheet/consolidated (the `GetBalanceSheetConsolidated` operationId).
 func (c *Client) GetBalanceSheetConsolidated(ctx context.Context, params *GetBalanceSheetConsolidatedParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -35701,7 +35701,7 @@ func (c *Client) GetTimeSeriesBop(ctx context.Context, params *GetTimeSeriesBopP
 
 // GetCashFlow Cash flow
 //
-// The cash flow endpoint provides detailed information on a company's cash flow activities, including the net cash and cash equivalents moving in and out of the business. This data includes operating, investing, and financing cash flows, offering a detailed view of the company's liquidity and financial health.
+// The cash flow endpoint provides detailed information on a company's cash flow activities, including the net cash and cash equivalents moving in and out of the business. This data includes operating, investing, and financing cash flows, offering a comprehensive view of the company's liquidity and financial health.
 //
 // Corresponds with GET /cash_flow (the `GetCashFlow` operationId).
 func (c *Client) GetCashFlow(ctx context.Context, params *GetCashFlowParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -35837,7 +35837,7 @@ func (c *Client) GetTimeSeriesCorrel(ctx context.Context, params *GetTimeSeriesC
 
 // GetCountries Countries
 //
-// The countries endpoint provides a detailed list of countries, including their ISO codes, official names, capitals, and currencies. This data is essential for applications requiring accurate country information for tasks such as localization, currency conversion, or geographic analysis.
+// The countries endpoint provides a comprehensive list of countries, including their ISO codes, official names, capitals, and currencies. This data is essential for applications requiring accurate country information for tasks such as localization, currency conversion, or geographic analysis.
 //
 // Corresponds with GET /countries (the `GetCountries` operationId).
 func (c *Client) GetCountries(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -35854,7 +35854,7 @@ func (c *Client) GetCountries(ctx context.Context, reqEditors ...RequestEditorFn
 
 // GetCrossListings Cross listings
 //
-// The cross_listings endpoint provides a daily updated list of cross-listed symbols for a specified financial instrument. Cross-listed symbols represent the same security available on multiple exchanges. This endpoint is useful for identifying all the exchanges where a particular security is traded, allowing users to access detailed trading information across different markets.
+// The cross_listings endpoint provides a daily updated list of cross-listed symbols for a specified financial instrument. Cross-listed symbols represent the same security available on multiple exchanges. This endpoint is useful for identifying all the exchanges where a particular security is traded, allowing users to access comprehensive trading information across different markets.
 //
 // Corresponds with GET /cross_listings (the `GetCrossListings` operationId).
 func (c *Client) GetCrossListings(ctx context.Context, params *GetCrossListingsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -35888,7 +35888,7 @@ func (c *Client) GetTimeSeriesCrsi(ctx context.Context, params *GetTimeSeriesCrs
 
 // GetCryptocurrencies Cryptocurrency pairs
 //
-// The cryptocurrencies endpoint provides a daily updated list of all available cryptos. It returns an array containing detailed information about each cryptocurrency, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a detailed catalog of cryptocurrencies for applications that require up-to-date market listings or need to display available crypto assets to users.
+// The cryptocurrencies endpoint provides a daily updated list of all available cryptos. It returns an array containing detailed information about each cryptocurrency, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a comprehensive catalog of cryptocurrencies for applications that require up-to-date market listings or need to display available crypto assets to users.
 //
 // Corresponds with GET /cryptocurrencies (the `GetCryptocurrencies` operationId).
 func (c *Client) GetCryptocurrencies(ctx context.Context, params *GetCryptocurrenciesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36075,7 +36075,7 @@ func (c *Client) GetEarliestTimestamp(ctx context.Context, params *GetEarliestTi
 
 // GetEarnings Earnings
 //
-// The earnings endpoint provides detailed earnings data for a specified company, including both the estimated and actual Earnings Per Share (EPS) figures. This endpoint delivers historical earnings information, allowing users to track a company's financial performance over time.
+// The earnings endpoint provides comprehensive earnings data for a specified company, including both the estimated and actual Earnings Per Share (EPS) figures. This endpoint delivers historical earnings information, allowing users to track a company's financial performance over time.
 //
 // Corresponds with GET /earnings (the `GetEarnings` operationId).
 func (c *Client) GetEarnings(ctx context.Context, params *GetEarningsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36126,7 +36126,7 @@ func (c *Client) GetEarningsEstimate(ctx context.Context, params *GetEarningsEst
 
 // GetEdgarFilingsArchive EDGAR fillings
 //
-// The EDGAR fillings endpoint provides access to a detailed collection of financial documents submitted to the SEC, including real-time and historical forms, filings, and exhibits. Users can retrieve detailed information about company disclosures, financial statements, and regulatory submissions, enabling them to access essential compliance and financial data directly from the SEC's EDGAR system.
+// The EDGAR fillings endpoint provides access to a comprehensive collection of financial documents submitted to the SEC, including real-time and historical forms, filings, and exhibits. Users can retrieve detailed information about company disclosures, financial statements, and regulatory submissions, enabling them to access essential compliance and financial data directly from the SEC's EDGAR system.
 //
 // Corresponds with GET /edgar_filings/archive (the `GetEdgarFilingsArchive` operationId).
 func (c *Client) GetEdgarFilingsArchive(ctx context.Context, params *GetEdgarFilingsArchiveParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36194,7 +36194,7 @@ func (c *Client) GetEpsRevisions(ctx context.Context, params *GetEpsRevisionsPar
 
 // GetEpsTrend EPS trend
 //
-// The EPS trend endpoint provides detailed historical data on Earnings Per Share (EPS) trends over specified periods. It returns a detailed breakdown of estimated EPS changes, allowing users to track and analyze the progression of a company's earnings performance over time. This endpoint is ideal for users seeking to understand historical EPS fluctuations and assess financial growth patterns.
+// The EPS trend endpoint provides detailed historical data on Earnings Per Share (EPS) trends over specified periods. It returns a comprehensive breakdown of estimated EPS changes, allowing users to track and analyze the progression of a company's earnings performance over time. This endpoint is ideal for users seeking to understand historical EPS fluctuations and assess financial growth patterns.
 //
 // Corresponds with GET /eps_trend (the `GetEpsTrend` operationId).
 func (c *Client) GetEpsTrend(ctx context.Context, params *GetEpsTrendParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36211,7 +36211,7 @@ func (c *Client) GetEpsTrend(ctx context.Context, params *GetEpsTrendParams, req
 
 // GetEtf ETFs
 //
-// The ETFs endpoint provides a daily updated list of all available Exchange-Traded Funds. It returns an array containing detailed information about each ETF, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a detailed catalog of ETFs for portfolio management, investment tracking, or financial analysis.
+// The ETFs endpoint provides a daily updated list of all available Exchange-Traded Funds. It returns an array containing detailed information about each ETF, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a comprehensive catalog of ETFs for portfolio management, investment tracking, or financial analysis.
 //
 // Corresponds with GET /etfs (the `GetEtf` operationId).
 func (c *Client) GetEtf(ctx context.Context, params *GetEtfParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36228,7 +36228,7 @@ func (c *Client) GetEtf(ctx context.Context, params *GetEtfParams, reqEditors ..
 
 // GetETFsFamily ETFs families
 //
-// Retrieve a detailed list of exchange-traded fund (ETF) families, providing users with detailed information on various ETF groups available in the market. This endpoint is ideal for users looking to explore different ETF categories, compare offerings, or integrate ETF family data into their financial applications.
+// Retrieve a comprehensive list of exchange-traded fund (ETF) families, providing users with detailed information on various ETF groups available in the market. This endpoint is ideal for users looking to explore different ETF categories, compare offerings, or integrate ETF family data into their financial applications.
 //
 // Corresponds with GET /etfs/family (the `GetETFsFamily` operationId).
 func (c *Client) GetETFsFamily(ctx context.Context, params *GetETFsFamilyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36245,7 +36245,7 @@ func (c *Client) GetETFsFamily(ctx context.Context, params *GetETFsFamilyParams,
 
 // GetETFsList ETFs directory
 //
-// The ETFs directory endpoint provides a daily updated list of exchange-traded funds, sorted by total assets in descending order. This endpoint is useful for retrieving detailed ETF data, including fund names and asset values, to assist users in quickly identifying the ETFs available.
+// The ETFs directory endpoint provides a daily updated list of exchange-traded funds, sorted by total assets in descending order. This endpoint is useful for retrieving comprehensive ETF data, including fund names and asset values, to assist users in quickly identifying the ETFs available.
 //
 // Corresponds with GET /etfs/list (the `GetETFsList` operationId).
 func (c *Client) GetETFsList(ctx context.Context, params *GetETFsListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36279,7 +36279,7 @@ func (c *Client) GetETFsType(ctx context.Context, params *GetETFsTypeParams, req
 
 // GetETFsWorld ETF full data
 //
-// The ETF full data endpoint provides detailed information about global Exchange-Traded Funds. It returns detailed data, including a summary, performance metrics, risk assessment, and composition details. This endpoint is ideal for users seeking an in-depth analysis of worldwide ETFs, enabling them to access key financial metrics and portfolio breakdowns.
+// The ETF full data endpoint provides detailed information about global Exchange-Traded Funds. It returns comprehensive data, including a summary, performance metrics, risk assessment, and composition details. This endpoint is ideal for users seeking an in-depth analysis of worldwide ETFs, enabling them to access key financial metrics and portfolio breakdowns.
 //
 // Corresponds with GET /etfs/world (the `GetETFsWorld` operationId).
 func (c *Client) GetETFsWorld(ctx context.Context, params *GetETFsWorldParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36313,7 +36313,7 @@ func (c *Client) GetETFsWorldComposition(ctx context.Context, params *GetETFsWor
 
 // GetETFsWorldPerformance Performance
 //
-// The ETFs performance endpoint provides detailed performance data for exchange-traded funds globally. It returns detailed metrics such as trailing returns and annual returns, enabling users to evaluate the historical performance of various ETFs. This endpoint is ideal for users looking to compare ETF performance over different time periods and assess their investment potential.
+// The ETFs performance endpoint provides comprehensive performance data for exchange-traded funds globally. It returns detailed metrics such as trailing returns and annual returns, enabling users to evaluate the historical performance of various ETFs. This endpoint is ideal for users looking to compare ETF performance over different time periods and assess their investment potential.
 //
 // Corresponds with GET /etfs/world/performance (the `GetETFsWorldPerformance` operationId).
 func (c *Client) GetETFsWorldPerformance(ctx context.Context, params *GetETFsWorldPerformanceParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36398,7 +36398,7 @@ func (c *Client) GetExchangeSchedule(ctx context.Context, params *GetExchangeSch
 
 // GetExchanges Exchanges
 //
-// The exchanges endpoint provides a detailed list of all available equity exchanges. It returns an array containing detailed information about each exchange, such as exchange code, name, country, and timezone. This data is updated daily.
+// The exchanges endpoint provides a comprehensive list of all available equity exchanges. It returns an array containing detailed information about each exchange, such as exchange code, name, country, and timezone. This data is updated daily.
 //
 // Corresponds with GET /exchanges (the `GetExchanges` operationId).
 func (c *Client) GetExchanges(ctx context.Context, params *GetExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36449,7 +36449,7 @@ func (c *Client) GetTimeSeriesFloor(ctx context.Context, params *GetTimeSeriesFl
 
 // GetForexPairs Forex pairs
 //
-// The forex pairs endpoint provides a detailed list of all available foreign exchange currency pairs. It returns an array of forex pairs, which is updated daily.
+// The forex pairs endpoint provides a comprehensive list of all available foreign exchange currency pairs. It returns an array of forex pairs, which is updated daily.
 //
 // Corresponds with GET /forex_pairs (the `GetForexPairs` operationId).
 func (c *Client) GetForexPairs(ctx context.Context, params *GetForexPairsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36500,7 +36500,7 @@ func (c *Client) GetFunds(ctx context.Context, params *GetFundsParams, reqEditor
 
 // GetGrowthEstimates Growth estimates
 //
-// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a detailed view of expected company performance based on expert analysis.
+// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a comprehensive view of expected company performance based on expert analysis.
 //
 // Corresponds with GET /growth_estimates (the `GetGrowthEstimates` operationId).
 func (c *Client) GetGrowthEstimates(ctx context.Context, params *GetGrowthEstimatesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36670,7 +36670,7 @@ func (c *Client) GetTimeSeriesIchimoku(ctx context.Context, params *GetTimeSerie
 
 // GetIncomeStatement Income statement
 //
-// The income statement endpoint provides detailed financial data on a company's income statement, including revenues, expenses, and net income for specified periods, either annually or quarterly. This endpoint is essential for retrieving detailed financial performance metrics of a company, allowing users to access historical and current financial results.
+// The income statement endpoint provides detailed financial data on a company's income statement, including revenues, expenses, and net income for specified periods, either annually or quarterly. This endpoint is essential for retrieving comprehensive financial performance metrics of a company, allowing users to access historical and current financial results.
 //
 // Corresponds with GET /income_statement (the `GetIncomeStatement` operationId).
 func (c *Client) GetIncomeStatement(ctx context.Context, params *GetIncomeStatementParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -36687,7 +36687,7 @@ func (c *Client) GetIncomeStatement(ctx context.Context, params *GetIncomeStatem
 
 // GetIncomeStatementConsolidated Income statement consolidated
 //
-// The income statement consolidated endpoint provides a company's raw income statement, detailing revenue, expenses, and net income for specified periods, either annually or quarterly. This data is essential for evaluating a company's financial performance over time, allowing users to access detailed financial results in a structured format.
+// The income statement consolidated endpoint provides a company's raw income statement, detailing revenue, expenses, and net income for specified periods, either annually or quarterly. This data is essential for evaluating a company's financial performance over time, allowing users to access comprehensive financial results in a structured format.
 //
 // Corresponds with GET /income_statement/consolidated (the `GetIncomeStatementConsolidated` operationId).
 func (c *Client) GetIncomeStatementConsolidated(ctx context.Context, params *GetIncomeStatementConsolidatedParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -37384,7 +37384,7 @@ func (c *Client) GetMoneyMarketFundsList(ctx context.Context, params *GetMoneyMa
 
 // GetMoneyMarketFundsWorld MMF full data
 //
-// The money market fund full data endpoint provides detailed information about a global money market fund. It returns a detailed snapshot of the fund, including its identity, screener metrics (fund size, liquidity, weighted average maturity), yields, key facts, risk indicator, and key risks. This endpoint is essential for users seeking in-depth insights into a specific money market fund.
+// The money market fund full data endpoint provides detailed information about a global money market fund. It returns a comprehensive snapshot of the fund, including its identity, screener metrics (fund size, liquidity, weighted average maturity), yields, key facts, risk indicator, and key risks. This endpoint is essential for users seeking in-depth insights into a specific money market fund.
 //
 // Corresponds with GET /money_market_funds/world (the `GetMoneyMarketFundsWorld` operationId).
 func (c *Client) GetMoneyMarketFundsWorld(ctx context.Context, params *GetMoneyMarketFundsWorldParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -37418,7 +37418,7 @@ func (c *Client) GetTimeSeriesMult(ctx context.Context, params *GetTimeSeriesMul
 
 // GetMutualFundsFamily MFs families
 //
-// The mutual funds family endpoint provides a detailed list of MF families, which are groups of mutual funds managed by the same investment company. This data is useful for users looking to explore or compare different fund families, understand the range of investment options offered by each, and identify potential investment opportunities within specific fund families.
+// The mutual funds family endpoint provides a comprehensive list of MF families, which are groups of mutual funds managed by the same investment company. This data is useful for users looking to explore or compare different fund families, understand the range of investment options offered by each, and identify potential investment opportunities within specific fund families.
 //
 // Corresponds with GET /mutual_funds/family (the `GetMutualFundsFamily` operationId).
 func (c *Client) GetMutualFundsFamily(ctx context.Context, params *GetMutualFundsFamilyParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -37469,7 +37469,7 @@ func (c *Client) GetMutualFundsType(ctx context.Context, params *GetMutualFundsT
 
 // GetMutualFundsWorld MF full data
 //
-// The mutual full data endpoint provides detailed information about global mutual funds. It returns a detailed dataset that includes a summary of the fund, its performance metrics, risk assessment, ratings, asset composition, purchase details, and sustainability factors. This endpoint is essential for users seeking in-depth insights into mutual funds on a global scale, allowing them to evaluate various aspects such as investment performance, risk levels, and environmental impact.
+// The mutual full data endpoint provides detailed information about global mutual funds. It returns a comprehensive dataset that includes a summary of the fund, its performance metrics, risk assessment, ratings, asset composition, purchase details, and sustainability factors. This endpoint is essential for users seeking in-depth insights into mutual funds on a global scale, allowing them to evaluate various aspects such as investment performance, risk levels, and environmental impact.
 //
 // Corresponds with GET /mutual_funds/world (the `GetMutualFundsWorld` operationId).
 func (c *Client) GetMutualFundsWorld(ctx context.Context, params *GetMutualFundsWorldParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -37503,7 +37503,7 @@ func (c *Client) GetMutualFundsWorldComposition(ctx context.Context, params *Get
 
 // GetMutualFundsWorldPerformance Performance
 //
-// The mutual funds performances endpoint provides detailed performance data for mutual funds globally. It returns metrics such as trailing returns, annual returns, quarterly returns, and load-adjusted returns.
+// The mutual funds performances endpoint provides comprehensive performance data for mutual funds globally. It returns metrics such as trailing returns, annual returns, quarterly returns, and load-adjusted returns.
 //
 // Corresponds with GET /mutual_funds/world/performance (the `GetMutualFundsWorldPerformance` operationId).
 func (c *Client) GetMutualFundsWorldPerformance(ctx context.Context, params *GetMutualFundsWorldPerformanceParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -37775,7 +37775,7 @@ func (c *Client) GetPriceTarget(ctx context.Context, params *GetPriceTargetParam
 
 // GetProfile Profile
 //
-// The profile endpoint provides detailed company information, including the company's name, industry, sector, CEO, and headquarters location. This data is useful for obtaining a detailed overview of a company's business and financial standing.
+// The profile endpoint provides detailed company information, including the company's name, industry, sector, CEO, and headquarters location. This data is useful for obtaining a comprehensive overview of a company's business and financial standing.
 //
 // Corresponds with GET /profile (the `GetProfile` operationId).
 func (c *Client) GetProfile(ctx context.Context, params *GetProfileParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -37945,7 +37945,7 @@ func (c *Client) GetTimeSeriesRvol(ctx context.Context, params *GetTimeSeriesRvo
 
 // GetSourceSanctionedEntities Sanctioned entities
 //
-// The sanctions entities endpoint provides a detailed list of entities sanctioned by a specified authority, such as OFAC, UK, EU, or AU. Users can retrieve detailed information about individuals, organizations, and other entities subject to sanctions from the chosen source, facilitating compliance and risk management processes.
+// The sanctions entities endpoint provides a comprehensive list of entities sanctioned by a specified authority, such as OFAC, UK, EU, or AU. Users can retrieve detailed information about individuals, organizations, and other entities subject to sanctions from the chosen source, facilitating compliance and risk management processes.
 //
 // Corresponds with GET /sanctions/{source} (the `GetSourceSanctionedEntities` operationId).
 func (c *Client) GetSourceSanctionedEntities(ctx context.Context, source SourceEnum, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -38064,7 +38064,7 @@ func (c *Client) GetTimeSeriesSqrt(ctx context.Context, params *GetTimeSeriesSqr
 
 // GetStatistics Statistics
 //
-// The statistics endpoint provides a detailed snapshot of a company's key financial statistics, including valuation metrics, revenue figures, profit margins, and other essential financial data. This endpoint is ideal for users seeking detailed insights into a company's financial health and performance metrics.
+// The statistics endpoint provides a comprehensive snapshot of a company's key financial statistics, including valuation metrics, revenue figures, profit margins, and other essential financial data. This endpoint is ideal for users seeking detailed insights into a company's financial health and performance metrics.
 //
 // Corresponds with GET /statistics (the `GetStatistics` operationId).
 func (c *Client) GetStatistics(ctx context.Context, params *GetStatisticsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -38200,7 +38200,7 @@ func (c *Client) GetTimeSeriesSum(ctx context.Context, params *GetTimeSeriesSumP
 
 // GetTimeSeriesSuperTrend Supertrend
 //
-// The Supertrend endpoint provides data on the Supertrend indicator, a tool used to identify potential buy and sell signals in trending markets. It returns values that indicate the current trend direction and potential reversal points based on price, time, and volatility. Users can use this data to pinpoint optimal entry and exit points for trades.
+// The Supertrend endpoint provides data on the Supertrend indicator, a tool used to identify potential buy and sell signals in trending markets. It returns values that indicate the current trend direction and potential reversal points based on price, time, and volatility. Users can leverage this data to pinpoint optimal entry and exit points for trades.
 //
 // Corresponds with GET /supertrend (the `GetTimeSeriesSuperTrend` operationId).
 func (c *Client) GetTimeSeriesSuperTrend(ctx context.Context, params *GetTimeSeriesSuperTrendParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -38285,7 +38285,7 @@ func (c *Client) GetTaxInfo(ctx context.Context, params *GetTaxInfoParams, reqEd
 
 // GetTechnicalIndicators Technical indicators
 //
-// The technical indicators endpoint provides a detailed list of available technical indicators, each represented as an object. This endpoint is useful for developers looking to integrate a variety of technical analysis tools into their applications, allowing for streamlined access to indicator data without needing to manually configure each one.
+// The technical indicators endpoint provides a comprehensive list of available technical indicators, each represented as an object. This endpoint is useful for developers looking to integrate a variety of technical analysis tools into their applications, allowing for streamlined access to indicator data without needing to manually configure each one.
 //
 // Corresponds with GET /technical_indicators (the `GetTechnicalIndicators` operationId).
 func (c *Client) GetTechnicalIndicators(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -38319,7 +38319,7 @@ func (c *Client) GetTimeSeriesTema(ctx context.Context, params *GetTimeSeriesTem
 
 // GetTimeSeries Time series
 //
-// The time series endpoint provides detailed historical data for a specified financial instrument. It returns two main components: metadata, which includes essential information about the instrument, and a time series dataset. The time series consists of chronological entries with Open, High, Low, and Close prices, and for applicable instruments, it also includes trading volume. This endpoint is ideal for retrieving detailed historical price data for analysis or visualization purposes.
+// The time series endpoint provides detailed historical data for a specified financial instrument. It returns two main components: metadata, which includes essential information about the instrument, and a time series dataset. The time series consists of chronological entries with Open, High, Low, and Close prices, and for applicable instruments, it also includes trading volume. This endpoint is ideal for retrieving comprehensive historical price data for analysis or visualization purposes.
 //
 // Corresponds with GET /time_series (the `GetTimeSeries` operationId).
 func (c *Client) GetTimeSeries(ctx context.Context, params *GetTimeSeriesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -83104,7 +83104,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetBalanceSheetConsolidatedWithResponse Balance sheet consolidated
 	//
-	// The balance sheet consolidated endpoint provides a detailed overview of a company's raw balance sheet, including a detailed summary of its assets, liabilities, and shareholders' equity. This endpoint is useful for retrieving financial data that reflects the overall financial position of a company, allowing users to access critical information about its financial health and structure.
+	// The balance sheet consolidated endpoint provides a detailed overview of a company's raw balance sheet, including a comprehensive summary of its assets, liabilities, and shareholders' equity. This endpoint is useful for retrieving financial data that reflects the overall financial position of a company, allowing users to access critical information about its financial health and structure.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83197,7 +83197,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetCashFlowWithResponse Cash flow
 	//
-	// The cash flow endpoint provides detailed information on a company's cash flow activities, including the net cash and cash equivalents moving in and out of the business. This data includes operating, investing, and financing cash flows, offering a detailed view of the company's liquidity and financial health.
+	// The cash flow endpoint provides detailed information on a company's cash flow activities, including the net cash and cash equivalents moving in and out of the business. This data includes operating, investing, and financing cash flows, offering a comprehensive view of the company's liquidity and financial health.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83269,7 +83269,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetCountriesWithResponse Countries
 	//
-	// The countries endpoint provides a detailed list of countries, including their ISO codes, official names, capitals, and currencies. This data is essential for applications requiring accurate country information for tasks such as localization, currency conversion, or geographic analysis.
+	// The countries endpoint provides a comprehensive list of countries, including their ISO codes, official names, capitals, and currencies. This data is essential for applications requiring accurate country information for tasks such as localization, currency conversion, or geographic analysis.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83278,7 +83278,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetCrossListingsWithResponse Cross listings
 	//
-	// The cross_listings endpoint provides a daily updated list of cross-listed symbols for a specified financial instrument. Cross-listed symbols represent the same security available on multiple exchanges. This endpoint is useful for identifying all the exchanges where a particular security is traded, allowing users to access detailed trading information across different markets.
+	// The cross_listings endpoint provides a daily updated list of cross-listed symbols for a specified financial instrument. Cross-listed symbols represent the same security available on multiple exchanges. This endpoint is useful for identifying all the exchanges where a particular security is traded, allowing users to access comprehensive trading information across different markets.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83296,7 +83296,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetCryptocurrenciesWithResponse Cryptocurrency pairs
 	//
-	// The cryptocurrencies endpoint provides a daily updated list of all available cryptos. It returns an array containing detailed information about each cryptocurrency, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a detailed catalog of cryptocurrencies for applications that require up-to-date market listings or need to display available crypto assets to users.
+	// The cryptocurrencies endpoint provides a daily updated list of all available cryptos. It returns an array containing detailed information about each cryptocurrency, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a comprehensive catalog of cryptocurrencies for applications that require up-to-date market listings or need to display available crypto assets to users.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83395,7 +83395,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetEarningsWithResponse Earnings
 	//
-	// The earnings endpoint provides detailed earnings data for a specified company, including both the estimated and actual Earnings Per Share (EPS) figures. This endpoint delivers historical earnings information, allowing users to track a company's financial performance over time.
+	// The earnings endpoint provides comprehensive earnings data for a specified company, including both the estimated and actual Earnings Per Share (EPS) figures. This endpoint delivers historical earnings information, allowing users to track a company's financial performance over time.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83422,7 +83422,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetEdgarFilingsArchiveWithResponse EDGAR fillings
 	//
-	// The EDGAR fillings endpoint provides access to a detailed collection of financial documents submitted to the SEC, including real-time and historical forms, filings, and exhibits. Users can retrieve detailed information about company disclosures, financial statements, and regulatory submissions, enabling them to access essential compliance and financial data directly from the SEC's EDGAR system.
+	// The EDGAR fillings endpoint provides access to a comprehensive collection of financial documents submitted to the SEC, including real-time and historical forms, filings, and exhibits. Users can retrieve detailed information about company disclosures, financial statements, and regulatory submissions, enabling them to access essential compliance and financial data directly from the SEC's EDGAR system.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83458,7 +83458,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetEpsTrendWithResponse EPS trend
 	//
-	// The EPS trend endpoint provides detailed historical data on Earnings Per Share (EPS) trends over specified periods. It returns a detailed breakdown of estimated EPS changes, allowing users to track and analyze the progression of a company's earnings performance over time. This endpoint is ideal for users seeking to understand historical EPS fluctuations and assess financial growth patterns.
+	// The EPS trend endpoint provides detailed historical data on Earnings Per Share (EPS) trends over specified periods. It returns a comprehensive breakdown of estimated EPS changes, allowing users to track and analyze the progression of a company's earnings performance over time. This endpoint is ideal for users seeking to understand historical EPS fluctuations and assess financial growth patterns.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83467,7 +83467,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetEtfWithResponse ETFs
 	//
-	// The ETFs endpoint provides a daily updated list of all available Exchange-Traded Funds. It returns an array containing detailed information about each ETF, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a detailed catalog of ETFs for portfolio management, investment tracking, or financial analysis.
+	// The ETFs endpoint provides a daily updated list of all available Exchange-Traded Funds. It returns an array containing detailed information about each ETF, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a comprehensive catalog of ETFs for portfolio management, investment tracking, or financial analysis.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83476,7 +83476,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetETFsFamilyWithResponse ETFs families
 	//
-	// Retrieve a detailed list of exchange-traded fund (ETF) families, providing users with detailed information on various ETF groups available in the market. This endpoint is ideal for users looking to explore different ETF categories, compare offerings, or integrate ETF family data into their financial applications.
+	// Retrieve a comprehensive list of exchange-traded fund (ETF) families, providing users with detailed information on various ETF groups available in the market. This endpoint is ideal for users looking to explore different ETF categories, compare offerings, or integrate ETF family data into their financial applications.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83485,7 +83485,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetETFsListWithResponse ETFs directory
 	//
-	// The ETFs directory endpoint provides a daily updated list of exchange-traded funds, sorted by total assets in descending order. This endpoint is useful for retrieving detailed ETF data, including fund names and asset values, to assist users in quickly identifying the ETFs available.
+	// The ETFs directory endpoint provides a daily updated list of exchange-traded funds, sorted by total assets in descending order. This endpoint is useful for retrieving comprehensive ETF data, including fund names and asset values, to assist users in quickly identifying the ETFs available.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83503,7 +83503,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetETFsWorldWithResponse ETF full data
 	//
-	// The ETF full data endpoint provides detailed information about global Exchange-Traded Funds. It returns detailed data, including a summary, performance metrics, risk assessment, and composition details. This endpoint is ideal for users seeking an in-depth analysis of worldwide ETFs, enabling them to access key financial metrics and portfolio breakdowns.
+	// The ETF full data endpoint provides detailed information about global Exchange-Traded Funds. It returns comprehensive data, including a summary, performance metrics, risk assessment, and composition details. This endpoint is ideal for users seeking an in-depth analysis of worldwide ETFs, enabling them to access key financial metrics and portfolio breakdowns.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83521,7 +83521,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetETFsWorldPerformanceWithResponse Performance
 	//
-	// The ETFs performance endpoint provides detailed performance data for exchange-traded funds globally. It returns detailed metrics such as trailing returns and annual returns, enabling users to evaluate the historical performance of various ETFs. This endpoint is ideal for users looking to compare ETF performance over different time periods and assess their investment potential.
+	// The ETFs performance endpoint provides comprehensive performance data for exchange-traded funds globally. It returns detailed metrics such as trailing returns and annual returns, enabling users to evaluate the historical performance of various ETFs. This endpoint is ideal for users looking to compare ETF performance over different time periods and assess their investment potential.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83566,7 +83566,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetExchangesWithResponse Exchanges
 	//
-	// The exchanges endpoint provides a detailed list of all available equity exchanges. It returns an array containing detailed information about each exchange, such as exchange code, name, country, and timezone. This data is updated daily.
+	// The exchanges endpoint provides a comprehensive list of all available equity exchanges. It returns an array containing detailed information about each exchange, such as exchange code, name, country, and timezone. This data is updated daily.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83593,7 +83593,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetForexPairsWithResponse Forex pairs
 	//
-	// The forex pairs endpoint provides a detailed list of all available foreign exchange currency pairs. It returns an array of forex pairs, which is updated daily.
+	// The forex pairs endpoint provides a comprehensive list of all available foreign exchange currency pairs. It returns an array of forex pairs, which is updated daily.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83620,7 +83620,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetGrowthEstimatesWithResponse Growth estimates
 	//
-	// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a detailed view of expected company performance based on expert analysis.
+	// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a comprehensive view of expected company performance based on expert analysis.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83710,7 +83710,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetIncomeStatementWithResponse Income statement
 	//
-	// The income statement endpoint provides detailed financial data on a company's income statement, including revenues, expenses, and net income for specified periods, either annually or quarterly. This endpoint is essential for retrieving detailed financial performance metrics of a company, allowing users to access historical and current financial results.
+	// The income statement endpoint provides detailed financial data on a company's income statement, including revenues, expenses, and net income for specified periods, either annually or quarterly. This endpoint is essential for retrieving comprehensive financial performance metrics of a company, allowing users to access historical and current financial results.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -83719,7 +83719,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetIncomeStatementConsolidatedWithResponse Income statement consolidated
 	//
-	// The income statement consolidated endpoint provides a company's raw income statement, detailing revenue, expenses, and net income for specified periods, either annually or quarterly. This data is essential for evaluating a company's financial performance over time, allowing users to access detailed financial results in a structured format.
+	// The income statement consolidated endpoint provides a company's raw income statement, detailing revenue, expenses, and net income for specified periods, either annually or quarterly. This data is essential for evaluating a company's financial performance over time, allowing users to access comprehensive financial results in a structured format.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84088,7 +84088,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetMoneyMarketFundsWorldWithResponse MMF full data
 	//
-	// The money market fund full data endpoint provides detailed information about a global money market fund. It returns a detailed snapshot of the fund, including its identity, screener metrics (fund size, liquidity, weighted average maturity), yields, key facts, risk indicator, and key risks. This endpoint is essential for users seeking in-depth insights into a specific money market fund.
+	// The money market fund full data endpoint provides detailed information about a global money market fund. It returns a comprehensive snapshot of the fund, including its identity, screener metrics (fund size, liquidity, weighted average maturity), yields, key facts, risk indicator, and key risks. This endpoint is essential for users seeking in-depth insights into a specific money market fund.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84106,7 +84106,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetMutualFundsFamilyWithResponse MFs families
 	//
-	// The mutual funds family endpoint provides a detailed list of MF families, which are groups of mutual funds managed by the same investment company. This data is useful for users looking to explore or compare different fund families, understand the range of investment options offered by each, and identify potential investment opportunities within specific fund families.
+	// The mutual funds family endpoint provides a comprehensive list of MF families, which are groups of mutual funds managed by the same investment company. This data is useful for users looking to explore or compare different fund families, understand the range of investment options offered by each, and identify potential investment opportunities within specific fund families.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84133,7 +84133,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetMutualFundsWorldWithResponse MF full data
 	//
-	// The mutual full data endpoint provides detailed information about global mutual funds. It returns a detailed dataset that includes a summary of the fund, its performance metrics, risk assessment, ratings, asset composition, purchase details, and sustainability factors. This endpoint is essential for users seeking in-depth insights into mutual funds on a global scale, allowing them to evaluate various aspects such as investment performance, risk levels, and environmental impact.
+	// The mutual full data endpoint provides detailed information about global mutual funds. It returns a comprehensive dataset that includes a summary of the fund, its performance metrics, risk assessment, ratings, asset composition, purchase details, and sustainability factors. This endpoint is essential for users seeking in-depth insights into mutual funds on a global scale, allowing them to evaluate various aspects such as investment performance, risk levels, and environmental impact.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84151,7 +84151,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetMutualFundsWorldPerformanceWithResponse Performance
 	//
-	// The mutual funds performances endpoint provides detailed performance data for mutual funds globally. It returns metrics such as trailing returns, annual returns, quarterly returns, and load-adjusted returns.
+	// The mutual funds performances endpoint provides comprehensive performance data for mutual funds globally. It returns metrics such as trailing returns, annual returns, quarterly returns, and load-adjusted returns.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84295,7 +84295,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetProfileWithResponse Profile
 	//
-	// The profile endpoint provides detailed company information, including the company's name, industry, sector, CEO, and headquarters location. This data is useful for obtaining a detailed overview of a company's business and financial standing.
+	// The profile endpoint provides detailed company information, including the company's name, industry, sector, CEO, and headquarters location. This data is useful for obtaining a comprehensive overview of a company's business and financial standing.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84385,7 +84385,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetSourceSanctionedEntitiesWithResponse Sanctioned entities
 	//
-	// The sanctions entities endpoint provides a detailed list of entities sanctioned by a specified authority, such as OFAC, UK, EU, or AU. Users can retrieve detailed information about individuals, organizations, and other entities subject to sanctions from the chosen source, facilitating compliance and risk management processes.
+	// The sanctions entities endpoint provides a comprehensive list of entities sanctioned by a specified authority, such as OFAC, UK, EU, or AU. Users can retrieve detailed information about individuals, organizations, and other entities subject to sanctions from the chosen source, facilitating compliance and risk management processes.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84448,7 +84448,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetStatisticsWithResponse Statistics
 	//
-	// The statistics endpoint provides a detailed snapshot of a company's key financial statistics, including valuation metrics, revenue figures, profit margins, and other essential financial data. This endpoint is ideal for users seeking detailed insights into a company's financial health and performance metrics.
+	// The statistics endpoint provides a comprehensive snapshot of a company's key financial statistics, including valuation metrics, revenue figures, profit margins, and other essential financial data. This endpoint is ideal for users seeking detailed insights into a company's financial health and performance metrics.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84520,7 +84520,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetTimeSeriesSuperTrendWithResponse Supertrend
 	//
-	// The Supertrend endpoint provides data on the Supertrend indicator, a tool used to identify potential buy and sell signals in trending markets. It returns values that indicate the current trend direction and potential reversal points based on price, time, and volatility. Users can use this data to pinpoint optimal entry and exit points for trades.
+	// The Supertrend endpoint provides data on the Supertrend indicator, a tool used to identify potential buy and sell signals in trending markets. It returns values that indicate the current trend direction and potential reversal points based on price, time, and volatility. Users can leverage this data to pinpoint optimal entry and exit points for trades.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84565,7 +84565,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetTechnicalIndicatorsWithResponse Technical indicators
 	//
-	// The technical indicators endpoint provides a detailed list of available technical indicators, each represented as an object. This endpoint is useful for developers looking to integrate a variety of technical analysis tools into their applications, allowing for streamlined access to indicator data without needing to manually configure each one.
+	// The technical indicators endpoint provides a comprehensive list of available technical indicators, each represented as an object. This endpoint is useful for developers looking to integrate a variety of technical analysis tools into their applications, allowing for streamlined access to indicator data without needing to manually configure each one.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84583,7 +84583,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetTimeSeriesWithResponse Time series
 	//
-	// The time series endpoint provides detailed historical data for a specified financial instrument. It returns two main components: metadata, which includes essential information about the instrument, and a time series dataset. The time series consists of chronological entries with Open, High, Low, and Close prices, and for applicable instruments, it also includes trading volume. This endpoint is ideal for retrieving detailed historical price data for analysis or visualization purposes.
+	// The time series endpoint provides detailed historical data for a specified financial instrument. It returns two main components: metadata, which includes essential information about the instrument, and a time series dataset. The time series consists of chronological entries with Open, High, Low, and Close prices, and for applicable instruments, it also includes trading volume. This endpoint is ideal for retrieving comprehensive historical price data for analysis or visualization purposes.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -101747,7 +101747,7 @@ func (c *ClientWithResponses) GetBalanceSheetWithResponse(ctx context.Context, p
 
 // GetBalanceSheetConsolidatedWithResponse Balance sheet consolidated
 //
-// The balance sheet consolidated endpoint provides a detailed overview of a company's raw balance sheet, including a detailed summary of its assets, liabilities, and shareholders' equity. This endpoint is useful for retrieving financial data that reflects the overall financial position of a company, allowing users to access critical information about its financial health and structure.
+// The balance sheet consolidated endpoint provides a detailed overview of a company's raw balance sheet, including a comprehensive summary of its assets, liabilities, and shareholders' equity. This endpoint is useful for retrieving financial data that reflects the overall financial position of a company, allowing users to access critical information about its financial health and structure.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -101882,7 +101882,7 @@ func (c *ClientWithResponses) GetTimeSeriesBopWithResponse(ctx context.Context, 
 
 // GetCashFlowWithResponse Cash flow
 //
-// The cash flow endpoint provides detailed information on a company's cash flow activities, including the net cash and cash equivalents moving in and out of the business. This data includes operating, investing, and financing cash flows, offering a detailed view of the company's liquidity and financial health.
+// The cash flow endpoint provides detailed information on a company's cash flow activities, including the net cash and cash equivalents moving in and out of the business. This data includes operating, investing, and financing cash flows, offering a comprehensive view of the company's liquidity and financial health.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102002,7 +102002,7 @@ func (c *ClientWithResponses) GetTimeSeriesCorrelWithResponse(ctx context.Contex
 
 // GetCountriesWithResponse Countries
 //
-// The countries endpoint provides a detailed list of countries, including their ISO codes, official names, capitals, and currencies. This data is essential for applications requiring accurate country information for tasks such as localization, currency conversion, or geographic analysis.
+// The countries endpoint provides a comprehensive list of countries, including their ISO codes, official names, capitals, and currencies. This data is essential for applications requiring accurate country information for tasks such as localization, currency conversion, or geographic analysis.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102017,7 +102017,7 @@ func (c *ClientWithResponses) GetCountriesWithResponse(ctx context.Context, reqE
 
 // GetCrossListingsWithResponse Cross listings
 //
-// The cross_listings endpoint provides a daily updated list of cross-listed symbols for a specified financial instrument. Cross-listed symbols represent the same security available on multiple exchanges. This endpoint is useful for identifying all the exchanges where a particular security is traded, allowing users to access detailed trading information across different markets.
+// The cross_listings endpoint provides a daily updated list of cross-listed symbols for a specified financial instrument. Cross-listed symbols represent the same security available on multiple exchanges. This endpoint is useful for identifying all the exchanges where a particular security is traded, allowing users to access comprehensive trading information across different markets.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102047,7 +102047,7 @@ func (c *ClientWithResponses) GetTimeSeriesCrsiWithResponse(ctx context.Context,
 
 // GetCryptocurrenciesWithResponse Cryptocurrency pairs
 //
-// The cryptocurrencies endpoint provides a daily updated list of all available cryptos. It returns an array containing detailed information about each cryptocurrency, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a detailed catalog of cryptocurrencies for applications that require up-to-date market listings or need to display available crypto assets to users.
+// The cryptocurrencies endpoint provides a daily updated list of all available cryptos. It returns an array containing detailed information about each cryptocurrency, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a comprehensive catalog of cryptocurrencies for applications that require up-to-date market listings or need to display available crypto assets to users.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102212,7 +102212,7 @@ func (c *ClientWithResponses) GetEarliestTimestampWithResponse(ctx context.Conte
 
 // GetEarningsWithResponse Earnings
 //
-// The earnings endpoint provides detailed earnings data for a specified company, including both the estimated and actual Earnings Per Share (EPS) figures. This endpoint delivers historical earnings information, allowing users to track a company's financial performance over time.
+// The earnings endpoint provides comprehensive earnings data for a specified company, including both the estimated and actual Earnings Per Share (EPS) figures. This endpoint delivers historical earnings information, allowing users to track a company's financial performance over time.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102257,7 +102257,7 @@ func (c *ClientWithResponses) GetEarningsEstimateWithResponse(ctx context.Contex
 
 // GetEdgarFilingsArchiveWithResponse EDGAR fillings
 //
-// The EDGAR fillings endpoint provides access to a detailed collection of financial documents submitted to the SEC, including real-time and historical forms, filings, and exhibits. Users can retrieve detailed information about company disclosures, financial statements, and regulatory submissions, enabling them to access essential compliance and financial data directly from the SEC's EDGAR system.
+// The EDGAR fillings endpoint provides access to a comprehensive collection of financial documents submitted to the SEC, including real-time and historical forms, filings, and exhibits. Users can retrieve detailed information about company disclosures, financial statements, and regulatory submissions, enabling them to access essential compliance and financial data directly from the SEC's EDGAR system.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102317,7 +102317,7 @@ func (c *ClientWithResponses) GetEpsRevisionsWithResponse(ctx context.Context, p
 
 // GetEpsTrendWithResponse EPS trend
 //
-// The EPS trend endpoint provides detailed historical data on Earnings Per Share (EPS) trends over specified periods. It returns a detailed breakdown of estimated EPS changes, allowing users to track and analyze the progression of a company's earnings performance over time. This endpoint is ideal for users seeking to understand historical EPS fluctuations and assess financial growth patterns.
+// The EPS trend endpoint provides detailed historical data on Earnings Per Share (EPS) trends over specified periods. It returns a comprehensive breakdown of estimated EPS changes, allowing users to track and analyze the progression of a company's earnings performance over time. This endpoint is ideal for users seeking to understand historical EPS fluctuations and assess financial growth patterns.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102332,7 +102332,7 @@ func (c *ClientWithResponses) GetEpsTrendWithResponse(ctx context.Context, param
 
 // GetEtfWithResponse ETFs
 //
-// The ETFs endpoint provides a daily updated list of all available Exchange-Traded Funds. It returns an array containing detailed information about each ETF, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a detailed catalog of ETFs for portfolio management, investment tracking, or financial analysis.
+// The ETFs endpoint provides a daily updated list of all available Exchange-Traded Funds. It returns an array containing detailed information about each ETF, including its symbol, name, and other relevant identifiers. This endpoint is useful for retrieving a comprehensive catalog of ETFs for portfolio management, investment tracking, or financial analysis.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102347,7 +102347,7 @@ func (c *ClientWithResponses) GetEtfWithResponse(ctx context.Context, params *Ge
 
 // GetETFsFamilyWithResponse ETFs families
 //
-// Retrieve a detailed list of exchange-traded fund (ETF) families, providing users with detailed information on various ETF groups available in the market. This endpoint is ideal for users looking to explore different ETF categories, compare offerings, or integrate ETF family data into their financial applications.
+// Retrieve a comprehensive list of exchange-traded fund (ETF) families, providing users with detailed information on various ETF groups available in the market. This endpoint is ideal for users looking to explore different ETF categories, compare offerings, or integrate ETF family data into their financial applications.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102362,7 +102362,7 @@ func (c *ClientWithResponses) GetETFsFamilyWithResponse(ctx context.Context, par
 
 // GetETFsListWithResponse ETFs directory
 //
-// The ETFs directory endpoint provides a daily updated list of exchange-traded funds, sorted by total assets in descending order. This endpoint is useful for retrieving detailed ETF data, including fund names and asset values, to assist users in quickly identifying the ETFs available.
+// The ETFs directory endpoint provides a daily updated list of exchange-traded funds, sorted by total assets in descending order. This endpoint is useful for retrieving comprehensive ETF data, including fund names and asset values, to assist users in quickly identifying the ETFs available.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102392,7 +102392,7 @@ func (c *ClientWithResponses) GetETFsTypeWithResponse(ctx context.Context, param
 
 // GetETFsWorldWithResponse ETF full data
 //
-// The ETF full data endpoint provides detailed information about global Exchange-Traded Funds. It returns detailed data, including a summary, performance metrics, risk assessment, and composition details. This endpoint is ideal for users seeking an in-depth analysis of worldwide ETFs, enabling them to access key financial metrics and portfolio breakdowns.
+// The ETF full data endpoint provides detailed information about global Exchange-Traded Funds. It returns comprehensive data, including a summary, performance metrics, risk assessment, and composition details. This endpoint is ideal for users seeking an in-depth analysis of worldwide ETFs, enabling them to access key financial metrics and portfolio breakdowns.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102422,7 +102422,7 @@ func (c *ClientWithResponses) GetETFsWorldCompositionWithResponse(ctx context.Co
 
 // GetETFsWorldPerformanceWithResponse Performance
 //
-// The ETFs performance endpoint provides detailed performance data for exchange-traded funds globally. It returns detailed metrics such as trailing returns and annual returns, enabling users to evaluate the historical performance of various ETFs. This endpoint is ideal for users looking to compare ETF performance over different time periods and assess their investment potential.
+// The ETFs performance endpoint provides comprehensive performance data for exchange-traded funds globally. It returns detailed metrics such as trailing returns and annual returns, enabling users to evaluate the historical performance of various ETFs. This endpoint is ideal for users looking to compare ETF performance over different time periods and assess their investment potential.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102497,7 +102497,7 @@ func (c *ClientWithResponses) GetExchangeScheduleWithResponse(ctx context.Contex
 
 // GetExchangesWithResponse Exchanges
 //
-// The exchanges endpoint provides a detailed list of all available equity exchanges. It returns an array containing detailed information about each exchange, such as exchange code, name, country, and timezone. This data is updated daily.
+// The exchanges endpoint provides a comprehensive list of all available equity exchanges. It returns an array containing detailed information about each exchange, such as exchange code, name, country, and timezone. This data is updated daily.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102542,7 +102542,7 @@ func (c *ClientWithResponses) GetTimeSeriesFloorWithResponse(ctx context.Context
 
 // GetForexPairsWithResponse Forex pairs
 //
-// The forex pairs endpoint provides a detailed list of all available foreign exchange currency pairs. It returns an array of forex pairs, which is updated daily.
+// The forex pairs endpoint provides a comprehensive list of all available foreign exchange currency pairs. It returns an array of forex pairs, which is updated daily.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102587,7 +102587,7 @@ func (c *ClientWithResponses) GetFundsWithResponse(ctx context.Context, params *
 
 // GetGrowthEstimatesWithResponse Growth estimates
 //
-// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a detailed view of expected company performance based on expert analysis.
+// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a comprehensive view of expected company performance based on expert analysis.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102737,7 +102737,7 @@ func (c *ClientWithResponses) GetTimeSeriesIchimokuWithResponse(ctx context.Cont
 
 // GetIncomeStatementWithResponse Income statement
 //
-// The income statement endpoint provides detailed financial data on a company's income statement, including revenues, expenses, and net income for specified periods, either annually or quarterly. This endpoint is essential for retrieving detailed financial performance metrics of a company, allowing users to access historical and current financial results.
+// The income statement endpoint provides detailed financial data on a company's income statement, including revenues, expenses, and net income for specified periods, either annually or quarterly. This endpoint is essential for retrieving comprehensive financial performance metrics of a company, allowing users to access historical and current financial results.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -102752,7 +102752,7 @@ func (c *ClientWithResponses) GetIncomeStatementWithResponse(ctx context.Context
 
 // GetIncomeStatementConsolidatedWithResponse Income statement consolidated
 //
-// The income statement consolidated endpoint provides a company's raw income statement, detailing revenue, expenses, and net income for specified periods, either annually or quarterly. This data is essential for evaluating a company's financial performance over time, allowing users to access detailed financial results in a structured format.
+// The income statement consolidated endpoint provides a company's raw income statement, detailing revenue, expenses, and net income for specified periods, either annually or quarterly. This data is essential for evaluating a company's financial performance over time, allowing users to access comprehensive financial results in a structured format.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -103367,7 +103367,7 @@ func (c *ClientWithResponses) GetMoneyMarketFundsListWithResponse(ctx context.Co
 
 // GetMoneyMarketFundsWorldWithResponse MMF full data
 //
-// The money market fund full data endpoint provides detailed information about a global money market fund. It returns a detailed snapshot of the fund, including its identity, screener metrics (fund size, liquidity, weighted average maturity), yields, key facts, risk indicator, and key risks. This endpoint is essential for users seeking in-depth insights into a specific money market fund.
+// The money market fund full data endpoint provides detailed information about a global money market fund. It returns a comprehensive snapshot of the fund, including its identity, screener metrics (fund size, liquidity, weighted average maturity), yields, key facts, risk indicator, and key risks. This endpoint is essential for users seeking in-depth insights into a specific money market fund.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -103397,7 +103397,7 @@ func (c *ClientWithResponses) GetTimeSeriesMultWithResponse(ctx context.Context,
 
 // GetMutualFundsFamilyWithResponse MFs families
 //
-// The mutual funds family endpoint provides a detailed list of MF families, which are groups of mutual funds managed by the same investment company. This data is useful for users looking to explore or compare different fund families, understand the range of investment options offered by each, and identify potential investment opportunities within specific fund families.
+// The mutual funds family endpoint provides a comprehensive list of MF families, which are groups of mutual funds managed by the same investment company. This data is useful for users looking to explore or compare different fund families, understand the range of investment options offered by each, and identify potential investment opportunities within specific fund families.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -103442,7 +103442,7 @@ func (c *ClientWithResponses) GetMutualFundsTypeWithResponse(ctx context.Context
 
 // GetMutualFundsWorldWithResponse MF full data
 //
-// The mutual full data endpoint provides detailed information about global mutual funds. It returns a detailed dataset that includes a summary of the fund, its performance metrics, risk assessment, ratings, asset composition, purchase details, and sustainability factors. This endpoint is essential for users seeking in-depth insights into mutual funds on a global scale, allowing them to evaluate various aspects such as investment performance, risk levels, and environmental impact.
+// The mutual full data endpoint provides detailed information about global mutual funds. It returns a comprehensive dataset that includes a summary of the fund, its performance metrics, risk assessment, ratings, asset composition, purchase details, and sustainability factors. This endpoint is essential for users seeking in-depth insights into mutual funds on a global scale, allowing them to evaluate various aspects such as investment performance, risk levels, and environmental impact.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -103472,7 +103472,7 @@ func (c *ClientWithResponses) GetMutualFundsWorldCompositionWithResponse(ctx con
 
 // GetMutualFundsWorldPerformanceWithResponse Performance
 //
-// The mutual funds performances endpoint provides detailed performance data for mutual funds globally. It returns metrics such as trailing returns, annual returns, quarterly returns, and load-adjusted returns.
+// The mutual funds performances endpoint provides comprehensive performance data for mutual funds globally. It returns metrics such as trailing returns, annual returns, quarterly returns, and load-adjusted returns.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -103712,7 +103712,7 @@ func (c *ClientWithResponses) GetPriceTargetWithResponse(ctx context.Context, pa
 
 // GetProfileWithResponse Profile
 //
-// The profile endpoint provides detailed company information, including the company's name, industry, sector, CEO, and headquarters location. This data is useful for obtaining a detailed overview of a company's business and financial standing.
+// The profile endpoint provides detailed company information, including the company's name, industry, sector, CEO, and headquarters location. This data is useful for obtaining a comprehensive overview of a company's business and financial standing.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -103862,7 +103862,7 @@ func (c *ClientWithResponses) GetTimeSeriesRvolWithResponse(ctx context.Context,
 
 // GetSourceSanctionedEntitiesWithResponse Sanctioned entities
 //
-// The sanctions entities endpoint provides a detailed list of entities sanctioned by a specified authority, such as OFAC, UK, EU, or AU. Users can retrieve detailed information about individuals, organizations, and other entities subject to sanctions from the chosen source, facilitating compliance and risk management processes.
+// The sanctions entities endpoint provides a comprehensive list of entities sanctioned by a specified authority, such as OFAC, UK, EU, or AU. Users can retrieve detailed information about individuals, organizations, and other entities subject to sanctions from the chosen source, facilitating compliance and risk management processes.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -103967,7 +103967,7 @@ func (c *ClientWithResponses) GetTimeSeriesSqrtWithResponse(ctx context.Context,
 
 // GetStatisticsWithResponse Statistics
 //
-// The statistics endpoint provides a detailed snapshot of a company's key financial statistics, including valuation metrics, revenue figures, profit margins, and other essential financial data. This endpoint is ideal for users seeking detailed insights into a company's financial health and performance metrics.
+// The statistics endpoint provides a comprehensive snapshot of a company's key financial statistics, including valuation metrics, revenue figures, profit margins, and other essential financial data. This endpoint is ideal for users seeking detailed insights into a company's financial health and performance metrics.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -104087,7 +104087,7 @@ func (c *ClientWithResponses) GetTimeSeriesSumWithResponse(ctx context.Context, 
 
 // GetTimeSeriesSuperTrendWithResponse Supertrend
 //
-// The Supertrend endpoint provides data on the Supertrend indicator, a tool used to identify potential buy and sell signals in trending markets. It returns values that indicate the current trend direction and potential reversal points based on price, time, and volatility. Users can use this data to pinpoint optimal entry and exit points for trades.
+// The Supertrend endpoint provides data on the Supertrend indicator, a tool used to identify potential buy and sell signals in trending markets. It returns values that indicate the current trend direction and potential reversal points based on price, time, and volatility. Users can leverage this data to pinpoint optimal entry and exit points for trades.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -104162,7 +104162,7 @@ func (c *ClientWithResponses) GetTaxInfoWithResponse(ctx context.Context, params
 
 // GetTechnicalIndicatorsWithResponse Technical indicators
 //
-// The technical indicators endpoint provides a detailed list of available technical indicators, each represented as an object. This endpoint is useful for developers looking to integrate a variety of technical analysis tools into their applications, allowing for streamlined access to indicator data without needing to manually configure each one.
+// The technical indicators endpoint provides a comprehensive list of available technical indicators, each represented as an object. This endpoint is useful for developers looking to integrate a variety of technical analysis tools into their applications, allowing for streamlined access to indicator data without needing to manually configure each one.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -104192,7 +104192,7 @@ func (c *ClientWithResponses) GetTimeSeriesTemaWithResponse(ctx context.Context,
 
 // GetTimeSeriesWithResponse Time series
 //
-// The time series endpoint provides detailed historical data for a specified financial instrument. It returns two main components: metadata, which includes essential information about the instrument, and a time series dataset. The time series consists of chronological entries with Open, High, Low, and Close prices, and for applicable instruments, it also includes trading volume. This endpoint is ideal for retrieving detailed historical price data for analysis or visualization purposes.
+// The time series endpoint provides detailed historical data for a specified financial instrument. It returns two main components: metadata, which includes essential information about the instrument, and a time series dataset. The time series consists of chronological entries with Open, High, Low, and Close prices, and for applicable instruments, it also includes trading volume. This endpoint is ideal for retrieving comprehensive historical price data for analysis or visualization purposes.
 //
 // Returns a wrapper object for the known response body format(s).
 //

@@ -2,6 +2,11 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.1.1, 2026-10-17
+
+- Generated doc comments keep the API's own description text. The spec patch no longer rewrites dashes or wording in descriptions.
+- `make sec` uses Semgrep 1.181.0. Its pinned requirements now hash every published file, so the development image also builds on arm64.
+
 ## v0.1.0, 2026-10-17
 
 - Added `twelvedata`, a REST client generated with oapi-codegen from the Twelve Data API specification, version 0.0.1, OpenAPI 3.1.0. It covers all 187 paths: prices, quotes, time series, technical indicators, fundamentals, instrument metadata, calendars and batch requests.
