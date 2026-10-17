@@ -71,6 +71,8 @@ Replace `SYMBOL_X` with the instrument you need. Check `StatusCode()` and `JSON2
 
 The client covers all 187 paths, including prices, quotes, time series, technical indicators, fundamentals, instrument lists and `POST /batch`. Method names follow the spec's operation IDs.
 
+The full API, with the spec's descriptions as doc comments, is in the [Go reference](https://pkg.go.dev/github.com/psyb0t/go-twelvedata) and in `go doc github.com/psyb0t/go-twelvedata` from inside your module.
+
 ## Auth
 
 Twelve Data accepts `Authorization: apikey <key>`. Read the key from `TWELVEDATA_API_KEY` and set it with the request editor shown above. The spec also permits an `apikey` query parameter. Prefer the header to keep credentials out of URL logs.

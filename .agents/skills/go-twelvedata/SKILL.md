@@ -1,7 +1,8 @@
 ---
 name: go-twelvedata
-description: "Use the unofficial go-twelvedata client to write Go code for Twelve Data market prices, quotes, time series, technical indicators, fundamentals, instrument metadata and batch queries."
+description: "Unofficial Go client for the Twelve Data market data API, generated with oapi-codegen. Package twelvedata (github.com/psyb0t/go-twelvedata) provides typed REST methods for prices, quotes, time series, technical indicators, fundamentals, instrument metadata and batch queries. Use when Go code needs Twelve Data market data or already imports go-twelvedata."
 homepage: https://github.com/psyb0t/go-twelvedata
+license: MIT
 user-invocable: true
 metadata:
   openclaw:
@@ -9,8 +10,6 @@ metadata:
     requires:
       bins:
         - go
-      env:
-        - TWELVEDATA_API_KEY
 permissions:
   filesystem: "Guides edits to the Go source of the current project. The library reads and writes no files."
   shell: "The Go toolchain (`go get`, `go build`, `go test`) to add and compile the dependency."
@@ -40,6 +39,20 @@ Read [references/setup.md](references/setup.md) before writing calls. It covers 
 - The code is not Go. This module ships only a Go package.
 - You need a client maintained by Twelve Data. This one is unofficial and not affiliated with Twelve Data.
 - You want to change the generated client itself. Read `AGENTS.md` in the repository.
+
+## Finding endpoints and types
+
+The example below covers one call. Every operation in the spec has a generated method, and the spec's descriptions are on them as Go doc comments. Look names and fields up instead of guessing. After `go get github.com/psyb0t/go-twelvedata`, from inside your module:
+
+```bash
+go doc github.com/psyb0t/go-twelvedata ClientWithResponsesInterface  # every endpoint method
+go doc github.com/psyb0t/go-twelvedata GetTimeSeriesParams           # one method, params type or model
+go doc -all github.com/psyb0t/go-twelvedata                          # the whole package
+```
+
+The same documentation is at https://pkg.go.dev/github.com/psyb0t/go-twelvedata.
+
+Method names come from the spec's operation IDs. `<OperationId>WithResponse` takes the context, then the path parameters in order, then `*<OperationId>Params` when the operation has query or header parameters, then the request body when it has one. The `JSON200` field (or `JSON201` and so on, per declared status) holds the decoded body; it is nil for any other status. Parameter fields carry the provider's `x-go-name` names, so `outputsize` is `PageSize` and `dp` is `DecimalPlaces`, and the batch endpoint `POST /batch` is `AdvancedWithResponse`.
 
 ## Usage
 

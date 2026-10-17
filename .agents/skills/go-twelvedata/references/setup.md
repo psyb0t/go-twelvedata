@@ -31,7 +31,7 @@ Set `req.Header.Set("Authorization", "apikey "+key)` in a `twelvedata.WithReques
 
 ## Main operations
 
-The generated client covers all 187 paths. These are common entry points:
+The generated client covers every path in the spec. These are common entry points:
 
 | Method | Endpoint |
 | --- | --- |
@@ -58,7 +58,7 @@ The generated client covers all 187 paths. These are common entry points:
 | `GetApiUsageWithResponse` | `GET /api_usage` |
 | `AdvancedWithResponse` | `POST /batch` |
 
-The remaining operations cover other technical indicators, funds, analyst data, holders, corporate actions and market metadata. Read `client.gen.go` for each generated signature and parameter type.
+The remaining operations cover other technical indicators, funds, analyst data, holders, corporate actions and market metadata. Look up each generated signature and parameter type with `go doc`, as the skill's "Finding endpoints and types" section shows.
 
 ## Responses
 
