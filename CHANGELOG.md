@@ -2,6 +2,12 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.2.0, 2026-11-03
+
+- Changed the type of `ResponseMutualFundWorldComposition.BondBreakdown` from `*GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown` to `*ResponseMutualFundWorldCompositionBondBreakdown`. Code that names the old type must change.
+- Added the type `ResponseMutualFundWorldCompositionBondBreakdown` with the fields `AverageMaturity`, `AverageDuration` and `CreditQuality`.
+- Updated the doc comments of the `Isin` and `Cusip` parameters on the time series and indicator params types. Lookup by ISIN or CUSIP is available on all plans, and returning those values in responses needs the matching data add-on.
+
 ## v0.1.4, 2026-10-28
 
 - Updated Semgrep in the development image to 1.182.1 and refreshed its locked dependencies. certifi 2026.10.23 drops the emSign root CAs whose intermediate keys were compromised (GHSA-6q48-6c7w-9gw2).

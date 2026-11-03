@@ -7757,6 +7757,18 @@ type IncomeStatementItemGrossProfit struct {
 	CostOfRevenue *IncomeStatementItemGrossProfitCostOfRevenue `json:"cost_of_revenue,omitempty"`
 }
 
+// ResponseMutualFundWorldCompositionBondBreakdown Breakdown of the fund’s bond holdings by maturity, duration, and credit quality
+type ResponseMutualFundWorldCompositionBondBreakdown struct {
+	// AverageMaturity Average maturity of bond holdings for the fund and its category
+	AverageMaturity *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownAverageMaturity `json:"average_maturity,omitempty"`
+
+	// AverageDuration Average duration of bond holdings for the fund and its category
+	AverageDuration *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownAverageDuration `json:"average_duration,omitempty"`
+
+	// CreditQuality Breakdown of the fund’s bond holdings by credit rating and their respective portfolio weights
+	CreditQuality *[]GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownCreditQualityInner `json:"credit_quality,omitempty"`
+}
+
 // AssetsInfoLiabilities Liabilities information
 type AssetsInfoLiabilities struct {
 	// Equity EquityInfo represents equity information
@@ -20301,7 +20313,7 @@ type ResponseMutualFundWorldComposition struct {
 	TopHoldings *[]GetMutualFundsWorld200ResponseMutualFundCompositionTopHoldingsInner `json:"top_holdings,omitempty"`
 
 	// BondBreakdown Breakdown of the fund’s bond holdings by maturity, duration, and credit quality
-	BondBreakdown *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown `json:"bond_breakdown,omitempty"`
+	BondBreakdown *ResponseMutualFundWorldCompositionBondBreakdown `json:"bond_breakdown,omitempty"`
 }
 
 // ResponseMutualFundWorldPerformance Detailed performance of a mutual fund
@@ -20925,13 +20937,13 @@ type GetTimeSeriesAdParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21023,13 +21035,13 @@ type GetTimeSeriesAddParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21127,13 +21139,13 @@ type GetTimeSeriesAdOscParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21231,13 +21243,13 @@ type GetTimeSeriesAdxParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21332,13 +21344,13 @@ type GetTimeSeriesAdxrParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21436,10 +21448,10 @@ type GetAnalystRatingsLightParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Filter by exchange name
@@ -21466,10 +21478,10 @@ type GetAnalystRatingsUsEquitiesParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Filter by exchange name
@@ -21507,13 +21519,13 @@ type GetTimeSeriesApoParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21617,13 +21629,13 @@ type GetTimeSeriesAroonParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21718,13 +21730,13 @@ type GetTimeSeriesAroonOscParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21819,13 +21831,13 @@ type GetTimeSeriesAtrParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -21920,13 +21932,13 @@ type GetTimeSeriesAvgParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -22024,13 +22036,13 @@ type GetTimeSeriesAvgPriceParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -22127,10 +22139,10 @@ type GetBalanceSheetParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -22167,10 +22179,10 @@ type GetBalanceSheetConsolidatedParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -22205,13 +22217,13 @@ type GetTimeSeriesBBandsParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -22315,13 +22327,13 @@ type GetTimeSeriesBetaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -22452,13 +22464,13 @@ type GetTimeSeriesBopParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -22555,10 +22567,10 @@ type GetCashFlowParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -22597,10 +22609,10 @@ type GetCashFlowConsolidatedParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -22632,13 +22644,13 @@ type GetTimeSeriesCciParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -22733,13 +22745,13 @@ type GetTimeSeriesCeilParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -22834,13 +22846,13 @@ type GetTimeSeriesCmoParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -22959,13 +22971,13 @@ type GetTimeSeriesCoppockParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -23069,13 +23081,13 @@ type GetTimeSeriesCorrelParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -23191,13 +23203,13 @@ type GetTimeSeriesCrsiParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -23367,13 +23379,13 @@ type GetTimeSeriesDemaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -23476,10 +23488,10 @@ type GetDirectHoldersParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -23497,13 +23509,13 @@ type GetTimeSeriesDivParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -23605,10 +23617,10 @@ type GetDividendsParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -23647,10 +23659,10 @@ type GetDividendsCalendarParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -23682,13 +23694,13 @@ type GetTimeSeriesDpoParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -23789,13 +23801,13 @@ type GetTimeSeriesDxParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -23893,10 +23905,10 @@ type GetEarliestTimestampParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series.
@@ -23929,10 +23941,10 @@ type GetEarningsParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -24010,10 +24022,10 @@ type GetEarningsEstimateParams struct {
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country The country where the instrument is traded, e.g., `United States` or `US`
@@ -24034,10 +24046,10 @@ type GetEdgarFilingsArchiveParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Filter by exchange name
@@ -24070,13 +24082,13 @@ type GetTimeSeriesEmaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -24177,10 +24189,10 @@ type GetEodParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -24216,10 +24228,10 @@ type GetEpsRevisionsParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -24240,10 +24252,10 @@ type GetEpsTrendParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -24264,10 +24276,10 @@ type GetEtfParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Cik The CIK of an instrument for which data is requested
@@ -24318,10 +24330,10 @@ type GetETFsListParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Cik The CIK of an instrument for which data is requested
@@ -24369,10 +24381,10 @@ type GetETFsWorldParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -24390,10 +24402,10 @@ type GetETFsWorldCompositionParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -24411,10 +24423,10 @@ type GetETFsWorldPerformanceParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -24432,10 +24444,10 @@ type GetETFsWorldRiskParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -24453,10 +24465,10 @@ type GetETFsWorldSummaryParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -24551,13 +24563,13 @@ type GetTimeSeriesExpParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -24652,13 +24664,13 @@ type GetTimeSeriesFloorParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -24782,10 +24794,10 @@ type GetFundHoldersParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -24806,10 +24818,10 @@ type GetFundsParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Cik The CIK of an instrument for which data is requested
@@ -24848,10 +24860,10 @@ type GetGrowthEstimatesParams struct {
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country The country where the instrument is traded, e.g., `United States` or `US`
@@ -24869,13 +24881,13 @@ type GetTimeSeriesHeikinashiCandlesParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -24967,13 +24979,13 @@ type GetTimeSeriesHlc3Params struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -25065,13 +25077,13 @@ type GetTimeSeriesHtDcPeriodParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -25166,13 +25178,13 @@ type GetTimeSeriesHtDcPhaseParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -25267,13 +25279,13 @@ type GetTimeSeriesHtPhasorParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -25368,13 +25380,13 @@ type GetTimeSeriesHtSineParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -25469,13 +25481,13 @@ type GetTimeSeriesHtTrendlineParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -25570,13 +25582,13 @@ type GetTimeSeriesHtTrendModeParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -25671,13 +25683,13 @@ type GetTimeSeriesIchimokuParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -25789,10 +25801,10 @@ type GetIncomeStatementParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -25831,10 +25843,10 @@ type GetIncomeStatementConsolidatedParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -25873,10 +25885,10 @@ type GetInsiderTransactionsParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded, e.g., `Nasdaq`, `NSE`
@@ -25899,10 +25911,10 @@ type GetInstitutionalHoldersParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -25938,13 +25950,13 @@ type GetTimeSeriesKamaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26042,13 +26054,13 @@ type GetTimeSeriesKeltnerParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26160,10 +26172,10 @@ type GetKeyExecutivesParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -26181,13 +26193,13 @@ type GetTimeSeriesKstParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26330,13 +26342,13 @@ type GetTimeSeriesLinearRegParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26434,13 +26446,13 @@ type GetTimeSeriesLinearRegAngleParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26538,13 +26550,13 @@ type GetTimeSeriesLinearRegInterceptParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26642,13 +26654,13 @@ type GetTimeSeriesLinearRegSlopeParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26746,13 +26758,13 @@ type GetTimeSeriesLnParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26847,13 +26859,13 @@ type GetTimeSeriesLog10Params struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -26963,13 +26975,13 @@ type GetTimeSeriesMaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27070,13 +27082,13 @@ type GetTimeSeriesMacdParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27180,13 +27192,13 @@ type GetTimeSeriesMacdSlopeParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27293,13 +27305,13 @@ type GetTimeSeriesMacdExtParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27412,13 +27424,13 @@ type GetTimeSeriesMamaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27522,10 +27534,10 @@ type GetMarketCapParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Filter by exchange name
@@ -27592,13 +27604,13 @@ type GetTimeSeriesMaxParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27696,13 +27708,13 @@ type GetTimeSeriesMaxIndexParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27800,13 +27812,13 @@ type GetTimeSeriesMcGinleyDynamicParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27901,13 +27913,13 @@ type GetTimeSeriesMedPriceParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -27999,13 +28011,13 @@ type GetTimeSeriesMfiParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28100,13 +28112,13 @@ type GetTimeSeriesMidPointParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28204,13 +28216,13 @@ type GetTimeSeriesMidPriceParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28305,13 +28317,13 @@ type GetTimeSeriesMinParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28409,13 +28421,13 @@ type GetTimeSeriesMinIndexParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28513,13 +28525,13 @@ type GetTimeSeriesMinMaxParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28617,13 +28629,13 @@ type GetTimeSeriesMinMaxIndexParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28721,13 +28733,13 @@ type GetTimeSeriesMinusDIParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28822,13 +28834,13 @@ type GetTimeSeriesMinusDMParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -28923,13 +28935,13 @@ type GetTimeSeriesMomParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -29048,7 +29060,7 @@ type GetMoneyMarketFundsWorldParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Dp Number of decimal places for floating values
@@ -29060,13 +29072,13 @@ type GetTimeSeriesMultParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -29176,10 +29188,10 @@ type GetMutualFundsListParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Cik The CIK of an instrument for which data is requested
@@ -29233,10 +29245,10 @@ type GetMutualFundsWorldParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -29254,10 +29266,10 @@ type GetMutualFundsWorldCompositionParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -29275,10 +29287,10 @@ type GetMutualFundsWorldPerformanceParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -29296,10 +29308,10 @@ type GetMutualFundsWorldPurchaseInfoParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -29317,10 +29329,10 @@ type GetMutualFundsWorldRatingsParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -29338,10 +29350,10 @@ type GetMutualFundsWorldRiskParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -29359,10 +29371,10 @@ type GetMutualFundsWorldSummaryParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -29380,10 +29392,10 @@ type GetMutualFundsWorldSustainabilityParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -29398,13 +29410,13 @@ type GetTimeSeriesNatrParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -29499,13 +29511,13 @@ type GetTimeSeriesObvParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -29600,13 +29612,13 @@ type GetTimeSeriesPercentBParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -29710,13 +29722,13 @@ type GetTimeSeriesPivotPointsHLParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -29811,13 +29823,13 @@ type GetTimeSeriesPlusDIParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -29912,13 +29924,13 @@ type GetTimeSeriesPlusDMParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -30013,13 +30025,13 @@ type GetTimeSeriesPpoParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -30128,10 +30140,10 @@ type PressReleasesListParametersParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -30173,10 +30185,10 @@ type GetPriceParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -30215,10 +30227,10 @@ type GetPriceTargetParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -30240,10 +30252,10 @@ type GetProfileParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -30264,10 +30276,10 @@ type GetQuoteParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval of the quote
@@ -30329,10 +30341,10 @@ type GetRecommendationsParams struct {
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country The country where the instrument is traded, e.g., `United States` or `US`
@@ -30353,10 +30365,10 @@ type GetRevenueEstimateParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Country Filter by country name or alpha code, e.g., `United States` or `US`
@@ -30378,13 +30390,13 @@ type GetTimeSeriesRocParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -30482,13 +30494,13 @@ type GetTimeSeriesRocpParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -30586,13 +30598,13 @@ type GetTimeSeriesRocrParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -30690,13 +30702,13 @@ type GetTimeSeriesRocr100Params struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -30794,13 +30806,13 @@ type GetTimeSeriesRsiParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -30898,13 +30910,13 @@ type GetTimeSeriesRvolParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -30999,13 +31011,13 @@ type GetTimeSeriesSarParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -31103,13 +31115,13 @@ type GetTimeSeriesSarExtParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -31225,13 +31237,13 @@ type GetTimeSeriesSmaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -31332,10 +31344,10 @@ type GetSplitsParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -31366,10 +31378,10 @@ type GetSplitsCalendarParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -31399,13 +31411,13 @@ type GetTimeSeriesSqrtParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -31505,10 +31517,10 @@ type GetStatisticsParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange Exchange where instrument is traded
@@ -31526,13 +31538,13 @@ type GetTimeSeriesStdDevParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -31633,13 +31645,13 @@ type GetTimeSeriesStochParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -31746,13 +31758,13 @@ type GetTimeSeriesStochFParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -31853,13 +31865,13 @@ type GetTimeSeriesStochRsiParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -31971,10 +31983,10 @@ type GetStocksParams struct {
 	// Figi Filter by financial instrument global identifier (FIGI). This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Cik The CIK of an instrument for which data is requested
@@ -32016,13 +32028,13 @@ type GetTimeSeriesSubParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -32120,13 +32132,13 @@ type GetTimeSeriesSumParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -32224,13 +32236,13 @@ type GetTimeSeriesSuperTrendParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -32328,13 +32340,13 @@ type GetTimeSeriesSuperTrendHeikinAshiCandlesParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -32432,7 +32444,7 @@ type GetSymbolSearchParams struct {
 	// Symbol Symbol to search. Supports:
 	// <ul>
 	// <li>Ticker symbol of instrument.</li>
-	// <li>International securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section</li>
+	// <li>Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.</li>
 	// <li>The FIGI (Financial Instrument Global Identifier) parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.</li>
 	// <li>Composite FIGI parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.</li>
 	// <li>Share Class FIGI parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.</li>
@@ -32451,13 +32463,13 @@ type GetTimeSeriesT3maParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -32558,13 +32570,13 @@ type GetTaxInfoParams struct {
 	// Symbol The ticker symbol of an instrument for which data is requested, e.g., `SKYQ`, `AIRE`, `ALM:BME`, `HSI:HKEX`.
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Exchange The exchange name where the instrument is traded, e.g., `Nasdaq`, `Euronext`
@@ -32579,13 +32591,13 @@ type GetTimeSeriesTemaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -32683,13 +32695,13 @@ type GetTimeSeriesParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -32844,13 +32856,13 @@ type GetTimeSeriesTRangeParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -32942,13 +32954,13 @@ type GetTimeSeriesTrimaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -33046,13 +33058,13 @@ type GetTimeSeriesTsfParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -33150,13 +33162,13 @@ type GetTimeSeriesTypPriceParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -33248,13 +33260,13 @@ type GetTimeSeriesUltOscParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -33355,13 +33367,13 @@ type GetTimeSeriesVarParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -33459,13 +33471,13 @@ type GetTimeSeriesVwapParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -33565,13 +33577,13 @@ type GetTimeSeriesWclPriceParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -33663,13 +33675,13 @@ type GetTimeSeriesWillRParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
@@ -33764,13 +33776,13 @@ type GetTimeSeriesWmaParams struct {
 	// Symbol Symbol ticker of the instrument. E.g. `AAPL`, `EUR/USD`, `ETH/BTC`, ...
 	Symbol *string `form:"symbol,omitempty" json:"symbol,omitempty"`
 
-	// Isin Filter by international securities identification number (ISIN). ISIN access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Isin Look up an instrument by its International Securities Identification Number (ISIN). Available on all plans. Returning ISIN values in responses requires the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	Isin *string `form:"isin,omitempty" json:"isin,omitempty"`
 
 	// Figi The FIGI of an instrument for which data is requested. This parameter is available on the <a href="https://twelvedata.com/pricing">Ultra</a> plan (individual) and the <a href="https://twelvedata.com/pricing-business">Enterprise</a> plan (business) and above.
 	Figi *string `form:"figi,omitempty" json:"figi,omitempty"`
 
-	// Cusip The CUSIP of an instrument for which data is requested. CUSIP access is activating in the <a href="https://twelvedata.com/account/add-ons">Data add-ons</a> section
+	// Cusip Look up an instrument by its Committee on Uniform Securities Identification Procedures (CUSIP) number. Available on all plans. Returning CUSIP values in responses requires the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	Cusip *string `form:"cusip,omitempty" json:"cusip,omitempty"`
 
 	// Interval Interval between two consecutive points in time series
