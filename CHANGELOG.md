@@ -2,6 +2,11 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.3.0, 2026-11-06
+
+- Removed the type `ResponseMutualFundWorldCompositionBondBreakdown` and its fields `AverageMaturity`, `AverageDuration` and `CreditQuality`.
+- Changed the type of `ResponseMutualFundWorldComposition.BondBreakdown` from `*ResponseMutualFundWorldCompositionBondBreakdown` back to `*GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown`. Code that names the removed type must change.
+
 ## v0.2.0, 2026-11-03
 
 - Changed the type of `ResponseMutualFundWorldComposition.BondBreakdown` from `*GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown` to `*ResponseMutualFundWorldCompositionBondBreakdown`. Code that names the old type must change.

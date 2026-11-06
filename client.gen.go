@@ -7757,18 +7757,6 @@ type IncomeStatementItemGrossProfit struct {
 	CostOfRevenue *IncomeStatementItemGrossProfitCostOfRevenue `json:"cost_of_revenue,omitempty"`
 }
 
-// ResponseMutualFundWorldCompositionBondBreakdown Breakdown of the fund’s bond holdings by maturity, duration, and credit quality
-type ResponseMutualFundWorldCompositionBondBreakdown struct {
-	// AverageMaturity Average maturity of bond holdings for the fund and its category
-	AverageMaturity *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownAverageMaturity `json:"average_maturity,omitempty"`
-
-	// AverageDuration Average duration of bond holdings for the fund and its category
-	AverageDuration *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownAverageDuration `json:"average_duration,omitempty"`
-
-	// CreditQuality Breakdown of the fund’s bond holdings by credit rating and their respective portfolio weights
-	CreditQuality *[]GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownCreditQualityInner `json:"credit_quality,omitempty"`
-}
-
 // AssetsInfoLiabilities Liabilities information
 type AssetsInfoLiabilities struct {
 	// Equity EquityInfo represents equity information
@@ -20313,7 +20301,7 @@ type ResponseMutualFundWorldComposition struct {
 	TopHoldings *[]GetMutualFundsWorld200ResponseMutualFundCompositionTopHoldingsInner `json:"top_holdings,omitempty"`
 
 	// BondBreakdown Breakdown of the fund’s bond holdings by maturity, duration, and credit quality
-	BondBreakdown *ResponseMutualFundWorldCompositionBondBreakdown `json:"bond_breakdown,omitempty"`
+	BondBreakdown *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown `json:"bond_breakdown,omitempty"`
 }
 
 // ResponseMutualFundWorldPerformance Detailed performance of a mutual fund
