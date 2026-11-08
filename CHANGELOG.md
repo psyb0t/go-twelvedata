@@ -2,6 +2,13 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.5.0, 2026-11-08
+
+- Removed the type `ResponseMutualFundWorldCompositionBondBreakdown` and its fields `AverageMaturity`, `AverageDuration` and `CreditQuality`.
+- Changed the type of `ResponseMutualFundWorldComposition.BondBreakdown` from `*ResponseMutualFundWorldCompositionBondBreakdown` to `*GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown`. Code that names the removed type must change.
+- Updated the doc comments of `GetGrowthEstimates200ResponseGrowthEstimates` fields `CurrentQuarter`, `NextQuarter`, `CurrentYear`, `NextYear`, `Next5YearsPA` and `Past5YearsPA`. Growth values are EPS growth as decimals (0.1 = 10%), not percentages. `Next5YearsPA` is derived from consensus EPS estimates and is `null` when fewer than 3 analysts cover the company.
+- Updated the doc comments of `GetGrowthEstimates` and `GetGrowthEstimatesWithResponse` to describe consensus EPS growth estimates.
+
 ## v0.4.0, 2026-11-07
 
 - Added the type `ResponseMutualFundWorldCompositionBondBreakdown` back, with the fields `AverageMaturity`, `AverageDuration` and `CreditQuality`.

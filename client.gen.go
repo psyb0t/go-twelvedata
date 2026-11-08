@@ -6787,32 +6787,32 @@ type GetETFsWorld200ResponseEtfRiskValuationMetrics struct {
 
 // GetGrowthEstimates200ResponseGrowthEstimates Growth estimates data
 type GetGrowthEstimates200ResponseGrowthEstimates struct {
-	// CurrentQuarter Projected growth of the current quarter in percentage (%)
+	// CurrentQuarter Estimated EPS growth for the current quarter vs a year ago, as a decimal (0.1 = 10%)
 	//
 	// Example: 0.016
 	CurrentQuarter *float64 `json:"current_quarter,omitempty"`
 
-	// NextQuarter Projected growth of the next quarter in percentage (%)
+	// NextQuarter Estimated EPS growth for the next quarter vs a year ago, as a decimal (0.1 = 10%)
 	//
 	// Example: 0.01
 	NextQuarter *float64 `json:"next_quarter,omitempty"`
 
-	// CurrentYear Projected growth of the current year in percentage (%)
+	// CurrentYear Estimated EPS growth for the current fiscal year vs a year ago, as a decimal (0.1 = 10%)
 	//
 	// Example: 0.087
 	CurrentYear *float64 `json:"current_year,omitempty"`
 
-	// NextYear Projected growth of the next year in percentage (%)
+	// NextYear Estimated EPS growth for the next fiscal year vs a year ago, as a decimal (0.1 = 10%)
 	//
 	// Example: 0.055999998
 	NextYear *float64 `json:"next_year,omitempty"`
 
-	// Next5YearsPA Projected growth during the next 5 years in percentage (%) per annum
+	// Next5YearsPA Estimated annual EPS growth over the next 5 years, as a decimal (0.1 = 10%). Derived from consensus EPS estimates for the current and next fiscal year, converging to the company's historical 5-year growth; not a separate long-term analyst consensus. `null` if fewer than 3 analysts cover the company.
 	//
 	// Example: 0.094799995
 	Next5YearsPA *float64 `json:"next_5_years_pa,omitempty"`
 
-	// Past5YearsPA Actual growth over the last 5 years in percentage (%) per annum
+	// Past5YearsPA Annual EPS growth over the past 5 years, as a decimal (0.1 = 10%)
 	//
 	// Example: 0.23867
 	Past5YearsPA *float64 `json:"past_5_years_pa,omitempty"`
@@ -7755,18 +7755,6 @@ type IncomeStatementItemGrossProfit struct {
 
 	// CostOfRevenue Cost of revenue information
 	CostOfRevenue *IncomeStatementItemGrossProfitCostOfRevenue `json:"cost_of_revenue,omitempty"`
-}
-
-// ResponseMutualFundWorldCompositionBondBreakdown Breakdown of the fund’s bond holdings by maturity, duration, and credit quality
-type ResponseMutualFundWorldCompositionBondBreakdown struct {
-	// AverageMaturity Average maturity of bond holdings for the fund and its category
-	AverageMaturity *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownAverageMaturity `json:"average_maturity,omitempty"`
-
-	// AverageDuration Average duration of bond holdings for the fund and its category
-	AverageDuration *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownAverageDuration `json:"average_duration,omitempty"`
-
-	// CreditQuality Breakdown of the fund’s bond holdings by credit rating and their respective portfolio weights
-	CreditQuality *[]GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownCreditQualityInner `json:"credit_quality,omitempty"`
 }
 
 // AssetsInfoLiabilities Liabilities information
@@ -20313,7 +20301,7 @@ type ResponseMutualFundWorldComposition struct {
 	TopHoldings *[]GetMutualFundsWorld200ResponseMutualFundCompositionTopHoldingsInner `json:"top_holdings,omitempty"`
 
 	// BondBreakdown Breakdown of the fund’s bond holdings by maturity, duration, and credit quality
-	BondBreakdown *ResponseMutualFundWorldCompositionBondBreakdown `json:"bond_breakdown,omitempty"`
+	BondBreakdown *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown `json:"bond_breakdown,omitempty"`
 }
 
 // ResponseMutualFundWorldPerformance Detailed performance of a mutual fund
@@ -34471,7 +34459,7 @@ type ClientInterface interface {
 
 	// GetGrowthEstimates Growth estimates
 	//
-	// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a comprehensive view of expected company performance based on expert analysis.
+	// Consensus analyst estimates of EPS growth (adjusted, diluted) for the current and next quarter, current and next year, and the next 5 years, plus actual growth over the past 5 years.
 	//
 	// Corresponds with GET /growth_estimates (the `GetGrowthEstimates` operationId).
 	GetGrowthEstimates(ctx context.Context, params *GetGrowthEstimatesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -36512,7 +36500,7 @@ func (c *Client) GetFunds(ctx context.Context, params *GetFundsParams, reqEditor
 
 // GetGrowthEstimates Growth estimates
 //
-// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a comprehensive view of expected company performance based on expert analysis.
+// Consensus analyst estimates of EPS growth (adjusted, diluted) for the current and next quarter, current and next year, and the next 5 years, plus actual growth over the past 5 years.
 //
 // Corresponds with GET /growth_estimates (the `GetGrowthEstimates` operationId).
 func (c *Client) GetGrowthEstimates(ctx context.Context, params *GetGrowthEstimatesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -83632,7 +83620,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetGrowthEstimatesWithResponse Growth estimates
 	//
-	// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a comprehensive view of expected company performance based on expert analysis.
+	// Consensus analyst estimates of EPS growth (adjusted, diluted) for the current and next quarter, current and next year, and the next 5 years, plus actual growth over the past 5 years.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -102599,7 +102587,7 @@ func (c *ClientWithResponses) GetFundsWithResponse(ctx context.Context, params *
 
 // GetGrowthEstimatesWithResponse Growth estimates
 //
-// The growth estimates endpoint provides consensus analyst projections on a company's growth rates over various timeframes. It aggregates and averages estimates from multiple analysts, focusing on key financial metrics such as earnings per share and revenue. This endpoint is useful for obtaining a comprehensive view of expected company performance based on expert analysis.
+// Consensus analyst estimates of EPS growth (adjusted, diluted) for the current and next quarter, current and next year, and the next 5 years, plus actual growth over the past 5 years.
 //
 // Returns a wrapper object for the known response body format(s).
 //
