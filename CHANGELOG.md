@@ -2,6 +2,13 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.5.1, 2026-11-20
+
+- Raised the minimum Go version in `go.mod` from 1.26.10 to 1.26.11. Go 1.26.11 fixes GO-2026-6859, a `net/http` bug that affected `http.Client.Do`, which the client calls.
+- Updated the development image in `Dockerfile.dev` to `golang:1.26.11-trixie` with its new digest.
+- Updated the Go version note in the setup reference of the `go-twelvedata` skill.
+- No exported API changes.
+
 ## v0.5.0, 2026-11-08
 
 - Removed the type `ResponseMutualFundWorldCompositionBondBreakdown` and its fields `AverageMaturity`, `AverageDuration` and `CreditQuality`.
