@@ -7757,6 +7757,18 @@ type IncomeStatementItemGrossProfit struct {
 	CostOfRevenue *IncomeStatementItemGrossProfitCostOfRevenue `json:"cost_of_revenue,omitempty"`
 }
 
+// ResponseMutualFundWorldCompositionBondBreakdown Breakdown of the fund’s bond holdings by maturity, duration, and credit quality
+type ResponseMutualFundWorldCompositionBondBreakdown struct {
+	// AverageMaturity Average maturity of bond holdings for the fund and its category
+	AverageMaturity *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownAverageMaturity `json:"average_maturity,omitempty"`
+
+	// AverageDuration Average duration of bond holdings for the fund and its category
+	AverageDuration *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownAverageDuration `json:"average_duration,omitempty"`
+
+	// CreditQuality Breakdown of the fund’s bond holdings by credit rating and their respective portfolio weights
+	CreditQuality *[]GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdownCreditQualityInner `json:"credit_quality,omitempty"`
+}
+
 // AssetsInfoLiabilities Liabilities information
 type AssetsInfoLiabilities struct {
 	// Equity EquityInfo represents equity information
@@ -12273,27 +12285,27 @@ type GetApiUsage200Response struct {
 
 	// CurrentUsage Number of requests made in last minute
 	//
-	// Example: 4003
+	// Example: 3
 	CurrentUsage int64 `json:"current_usage"`
 
 	// PlanLimit Your personal API limit (requests/minute) depending on the plan
 	//
-	// Example: 20000
+	// Example: 8
 	PlanLimit int64 `json:"plan_limit"`
 
-	// DailyUsage Number of requests made in the current day. Returned only when the plan has a daily limit.
+	// DailyUsage API credits used today, counted from midnight UTC. Returned only on the Basic plan; paid plans have no daily limit.
 	//
-	// Example: 12500
+	// Example: 120
 	DailyUsage *int64 `json:"daily_usage,omitempty"`
 
-	// PlanDailyLimit Your personal API limit (requests/day) depending on the plan. Returned only when the plan has a daily limit.
+	// PlanDailyLimit Daily cap of API credits. Returned only on the Basic plan, where it is 800; paid plans have no daily limit.
 	//
-	// Example: 100000
+	// Example: 800
 	PlanDailyLimit *int64 `json:"plan_daily_limit,omitempty"`
 
 	// PlanCategory Plan category name
 	//
-	// Example: enterprise
+	// Example: basic
 	PlanCategory *string `json:"plan_category,omitempty"`
 }
 
@@ -20301,7 +20313,7 @@ type ResponseMutualFundWorldComposition struct {
 	TopHoldings *[]GetMutualFundsWorld200ResponseMutualFundCompositionTopHoldingsInner `json:"top_holdings,omitempty"`
 
 	// BondBreakdown Breakdown of the fund’s bond holdings by maturity, duration, and credit quality
-	BondBreakdown *GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown `json:"bond_breakdown,omitempty"`
+	BondBreakdown *ResponseMutualFundWorldCompositionBondBreakdown `json:"bond_breakdown,omitempty"`
 }
 
 // ResponseMutualFundWorldPerformance Detailed performance of a mutual fund
@@ -33991,7 +34003,7 @@ type ClientInterface interface {
 
 	// GetApiUsage API usage
 	//
-	// The API Usage endpoint provides detailed information on your current API usage statistics. It returns data such as the number of requests made, remaining requests, and the reset time for your usage limits. This endpoint is essential for monitoring and managing your API consumption to ensure you stay within your allocated limits.
+	// The API Usage endpoint returns your API credit usage for the current minute (`current_usage`) and your plan's per-minute limit (`plan_limit`). API credits are counted per minute on every plan. Only the Basic plan has a daily cap of 800 API credits, which resets at midnight UTC. Paid plans have no daily limit, so `daily_usage` and `plan_daily_limit` are returned only on the Basic plan. Use this endpoint to check how close you are to your limit before sending more requests.
 	//
 	// Corresponds with GET /api_usage (the `GetApiUsage` operationId).
 	GetApiUsage(ctx context.Context, params *GetApiUsageParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -35089,7 +35101,7 @@ type ClientInterface interface {
 
 	// GetSplitsCalendar Splits calendar
 	//
-	// The splits calendar endpoint provides a detailed calendar of stock split events within a specified date range. By setting the `start_date` and `end_date` parameters, users can retrieve a list of upcoming or past stock splits, including the company name, split ratio, and effective date. This endpoint is useful for tracking changes in stock structure and planning investment strategies around these events.
+	// The splits calendar endpoint provides a detailed calendar of past stock split events within a specified date range. By setting the `start_date` and `end_date` parameters, users can retrieve a list of stock splits, including the company name, split ratio, and effective date. This endpoint is useful for tracking changes in stock structure and analyzing how past splits affected stock prices.
 	//
 	// Corresponds with GET /splits_calendar (the `GetSplitsCalendar` operationId).
 	GetSplitsCalendar(ctx context.Context, params *GetSplitsCalendarParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -35412,7 +35424,7 @@ func (c *Client) GetAnalystRatingsUsEquities(ctx context.Context, params *GetAna
 
 // GetApiUsage API usage
 //
-// The API Usage endpoint provides detailed information on your current API usage statistics. It returns data such as the number of requests made, remaining requests, and the reset time for your usage limits. This endpoint is essential for monitoring and managing your API consumption to ensure you stay within your allocated limits.
+// The API Usage endpoint returns your API credit usage for the current minute (`current_usage`) and your plan's per-minute limit (`plan_limit`). API credits are counted per minute on every plan. Only the Basic plan has a daily cap of 800 API credits, which resets at midnight UTC. Paid plans have no daily limit, so `daily_usage` and `plan_daily_limit` are returned only on the Basic plan. Use this endpoint to check how close you are to your limit before sending more requests.
 //
 // Corresponds with GET /api_usage (the `GetApiUsage` operationId).
 func (c *Client) GetApiUsage(ctx context.Context, params *GetApiUsageParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -38030,7 +38042,7 @@ func (c *Client) GetSplits(ctx context.Context, params *GetSplitsParams, reqEdit
 
 // GetSplitsCalendar Splits calendar
 //
-// The splits calendar endpoint provides a detailed calendar of stock split events within a specified date range. By setting the `start_date` and `end_date` parameters, users can retrieve a list of upcoming or past stock splits, including the company name, split ratio, and effective date. This endpoint is useful for tracking changes in stock structure and planning investment strategies around these events.
+// The splits calendar endpoint provides a detailed calendar of past stock split events within a specified date range. By setting the `start_date` and `end_date` parameters, users can retrieve a list of stock splits, including the company name, split ratio, and effective date. This endpoint is useful for tracking changes in stock structure and analyzing how past splits affected stock prices.
 //
 // Corresponds with GET /splits_calendar (the `GetSplitsCalendar` operationId).
 func (c *Client) GetSplitsCalendar(ctx context.Context, params *GetSplitsCalendarParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -83032,7 +83044,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetApiUsageWithResponse API usage
 	//
-	// The API Usage endpoint provides detailed information on your current API usage statistics. It returns data such as the number of requests made, remaining requests, and the reset time for your usage limits. This endpoint is essential for monitoring and managing your API consumption to ensure you stay within your allocated limits.
+	// The API Usage endpoint returns your API credit usage for the current minute (`current_usage`) and your plan's per-minute limit (`plan_limit`). API credits are counted per minute on every plan. Only the Basic plan has a daily cap of 800 API credits, which resets at midnight UTC. Paid plans have no daily limit, so `daily_usage` and `plan_daily_limit` are returned only on the Basic plan. Use this endpoint to check how close you are to your limit before sending more requests.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -84430,7 +84442,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetSplitsCalendarWithResponse Splits calendar
 	//
-	// The splits calendar endpoint provides a detailed calendar of stock split events within a specified date range. By setting the `start_date` and `end_date` parameters, users can retrieve a list of upcoming or past stock splits, including the company name, split ratio, and effective date. This endpoint is useful for tracking changes in stock structure and planning investment strategies around these events.
+	// The splits calendar endpoint provides a detailed calendar of past stock split events within a specified date range. By setting the `start_date` and `end_date` parameters, users can retrieve a list of stock splits, including the company name, split ratio, and effective date. This endpoint is useful for tracking changes in stock structure and analyzing how past splits affected stock prices.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -101627,7 +101639,7 @@ func (c *ClientWithResponses) GetAnalystRatingsUsEquitiesWithResponse(ctx contex
 
 // GetApiUsageWithResponse API usage
 //
-// The API Usage endpoint provides detailed information on your current API usage statistics. It returns data such as the number of requests made, remaining requests, and the reset time for your usage limits. This endpoint is essential for monitoring and managing your API consumption to ensure you stay within your allocated limits.
+// The API Usage endpoint returns your API credit usage for the current minute (`current_usage`) and your plan's per-minute limit (`plan_limit`). API credits are counted per minute on every plan. Only the Basic plan has a daily cap of 800 API credits, which resets at midnight UTC. Paid plans have no daily limit, so `daily_usage` and `plan_daily_limit` are returned only on the Basic plan. Use this endpoint to check how close you are to your limit before sending more requests.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -103937,7 +103949,7 @@ func (c *ClientWithResponses) GetSplitsWithResponse(ctx context.Context, params 
 
 // GetSplitsCalendarWithResponse Splits calendar
 //
-// The splits calendar endpoint provides a detailed calendar of stock split events within a specified date range. By setting the `start_date` and `end_date` parameters, users can retrieve a list of upcoming or past stock splits, including the company name, split ratio, and effective date. This endpoint is useful for tracking changes in stock structure and planning investment strategies around these events.
+// The splits calendar endpoint provides a detailed calendar of past stock split events within a specified date range. By setting the `start_date` and `end_date` parameters, users can retrieve a list of stock splits, including the company name, split ratio, and effective date. This endpoint is useful for tracking changes in stock structure and analyzing how past splits affected stock prices.
 //
 // Returns a wrapper object for the known response body format(s).
 //

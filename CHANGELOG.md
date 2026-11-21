@@ -2,6 +2,14 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.6.0, 2026-11-21
+
+- Added the type `ResponseMutualFundWorldCompositionBondBreakdown` back, with the fields `AverageMaturity`, `AverageDuration` and `CreditQuality`.
+- Changed the type of `GetMutualFundsWorld200ResponseMutualFundComposition.BondBreakdown` from `*GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown` to `*ResponseMutualFundWorldCompositionBondBreakdown`. Code that names the old type must change.
+- Updated the doc comments of `GetApiUsage` and `GetApiUsageWithResponse`. Usage is counted in API credits per minute on every plan, and only the Basic plan has a daily cap of 800 credits.
+- Updated the doc comments of the API usage response fields `DailyUsage` and `PlanDailyLimit`. Both are returned only on the Basic plan.
+- Updated the doc comments of `GetSplitsCalendar` and `GetSplitsCalendarWithResponse` to say the endpoint lists past stock splits.
+
 ## v0.5.1, 2026-11-20
 
 - Raised the minimum Go version in `go.mod` from 1.26.10 to 1.26.11. Go 1.26.11 fixes GO-2026-6859, a `net/http` bug that affected `http.Client.Do`, which the client calls.
