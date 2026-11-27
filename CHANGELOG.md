@@ -2,6 +2,12 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.7.1, 2026-11-27
+
+- Updated the doc comments of the `Isin` and `Cusip` fields on `EtfResponseItem`, `FundResponseItem` and `StocksResponseItem`. Returning these values needs the ISIN Data or CUSIP Data add-on.
+- Updated the doc comment example of `ExchangesResponseItemAccess.PlanBusiness` from Basic to Venture.
+- No exported API changes.
+
 ## v0.7.0, 2026-11-23
 
 - Removed the type `ResponseMutualFundWorldCompositionBondBreakdown`. Code that names it must use `GetMutualFundsWorld200ResponseMutualFundCompositionBondBreakdown` instead.

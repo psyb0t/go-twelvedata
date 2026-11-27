@@ -11920,12 +11920,12 @@ type EtfResponseItem struct {
 	// Example: CECILU
 	CfiCode string `json:"cfi_code"`
 
-	// Isin International securities identification number (ISIN)
+	// Isin International securities identification number (ISIN). Available with the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	//
 	// Example: US78462F1030
 	Isin string `json:"isin"`
 
-	// Cusip A unique nine-character alphanumeric code used to identify financial securities, ensuring accurate data retrieval for the specified asset
+	// Cusip A unique nine-character alphanumeric code used to identify financial securities, ensuring accurate data retrieval for the specified asset. Available with the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	//
 	// Example: 037833100
 	Cusip string `json:"cusip"`
@@ -12033,7 +12033,7 @@ type ExchangesResponseItemAccess struct {
 
 	// PlanBusiness The business plan name for the symbol
 	//
-	// Example: Basic
+	// Example: Venture
 	PlanBusiness string `json:"plan_business"`
 }
 
@@ -12141,12 +12141,12 @@ type FundResponseItem struct {
 	// Example: CECILU
 	CfiCode string `json:"cfi_code"`
 
-	// Isin International securities identification number (ISIN)
+	// Isin International securities identification number (ISIN). Available with the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	//
 	// Example: GB00B65TLW28
 	Isin string `json:"isin"`
 
-	// Cusip A unique nine-character alphanumeric code used to identify financial securities, ensuring accurate data retrieval for the specified asset
+	// Cusip A unique nine-character alphanumeric code used to identify financial securities, ensuring accurate data retrieval for the specified asset. Available with the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	//
 	// Example: 35473P108
 	Cusip string `json:"cusip"`
@@ -20618,12 +20618,12 @@ type StocksResponseItem struct {
 	// Example: ESVUFR
 	CfiCode string `json:"cfi_code"`
 
-	// Isin International securities identification number (ISIN), available by individual request to support
+	// Isin International securities identification number (ISIN). Available with the <a href="https://twelvedata.com/account/add-ons">ISIN Data add-on</a>.
 	//
 	// Example: US0378331005
 	Isin string `json:"isin"`
 
-	// Cusip A unique nine-character alphanumeric code used to identify financial securities, ensuring accurate data retrieval for the specified asset
+	// Cusip A unique nine-character alphanumeric code used to identify financial securities, ensuring accurate data retrieval for the specified asset. Available with the <a href="https://twelvedata.com/account/add-ons">CUSIP Data add-on</a>.
 	//
 	// Example: 037833100
 	Cusip string `json:"cusip"`
